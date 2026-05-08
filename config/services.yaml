@@ -1,0 +1,118 @@
+services:
+  DFIR-R:
+    name: DFIR Retainer
+    code: DFIR-R
+    category: dfir
+    description: Pre-contracted priority access to forensic experts with guaranteed SLAs
+    key_components:
+      - Pre-contracted expert access
+      - 24/7 priority incident response
+      - Accelerated SLA guarantee
+      - Standby forensics team (GCFA, GCIH certified)
+      - PFI expertise for payment environments
+    engagement_type: retainer
+    typical_duration: "12 months"
+    deliverables:
+      - Retainer agreement with defined SLAs
+      - Incident response playbook
+      - Quarterly readiness reviews
+      - On-demand forensic investigation hours
+    regulatory_fit:
+      - PCI DSS v4.0 (Requirement 12.10)
+      - ISO/IEC 27001 (A.16)
+      - RBI guidelines
+    discovery_questions:
+      - What was your last incident and how long did containment take?
+      - Do you have a current IR retainer? If so, what are the SLAs?
+      - What is your regulatory environment (PCI DSS, RBI, SEBI)?
+      - How many payment channels or card data environments are in scope?
+      - What is your internal IR team capacity?
+
+  IFI:
+    name: Internal Forensic Investigation
+    code: IFI
+    category: dfir
+    description: Thorough investigation of complex or high-impact internal incidents
+    key_components:
+      - Deep system forensics
+      - Log analysis and correlation
+      - Attack chain reconstruction
+      - Data examination and classification
+      - Regulatory-ready reporting
+    engagement_type: project
+    typical_duration: "2-6 weeks"
+    deliverables:
+      - Executive summary report
+      - Technical forensic findings
+      - Attack timeline reconstruction
+      - Evidence chain of custody
+      - Remediation recommendations
+    regulatory_fit:
+      - PCI DSS breach notification
+      - CERT-In 6-hour reporting
+      - ISO/IEC 27001 incident management
+    discovery_questions:
+      - What type of incident occurred (insider threat, external breach, ransomware)?
+      - What systems and data are potentially impacted?
+      - Has the incident been contained or is it ongoing?
+      - Are there regulatory reporting obligations with deadlines?
+      - Is law enforcement involved or likely to be?
+
+  CA:
+    name: Compromise Assessment
+    code: CA
+    category: dfir
+    description: Proactive identification of hidden breaches and lateral movement
+    key_components:
+      - Hidden breach detection
+      - Lateral movement identification
+      - Environmental threat scanning
+      - Endpoint forensic triage
+      - IOC discovery and correlation
+    engagement_type: project
+    typical_duration: "1-3 weeks"
+    deliverables:
+      - Compromise assessment report
+      - IOC list and threat actor TTPs
+      - Risk prioritisation matrix
+      - Remediation roadmap
+    regulatory_fit:
+      - PCI DSS (post-breach assessment)
+      - ISO/IEC 27001 continuous improvement
+      - Cyber insurance requirements
+    discovery_questions:
+      - What triggered the decision to run a compromise assessment?
+      - How many endpoints and servers are in scope?
+      - Do you have EDR/SIEM tooling currently deployed?
+      - Have you noticed any anomalous activity — slow systems, unusual logins, data exfiltration alerts?
+      - Is this for insurance, compliance, or internal assurance?
+
+  BAS:
+    name: Breach and Attack Simulation
+    code: BAS
+    category: dfir
+    description: MITRE ATT&CK-mapped simulated attacks to validate defenses and assess security maturity
+    key_components:
+      - Simulated attack execution (MITRE ATT&CK)
+      - Defense gap identification
+      - Security maturity assessment
+      - Control validation
+      - Resilience recommendations
+    engagement_type: project
+    typical_duration: "2-4 weeks"
+    deliverables:
+      - BAS execution report
+      - MITRE ATT&CK coverage heatmap
+      - Security maturity score
+      - Control gap analysis
+      - Prioritised remediation plan
+    regulatory_fit:
+      - PCI DSS v4.0 (penetration testing requirements)
+      - ISO/IEC 27001 (A.14 — security testing)
+      - DORA (financial sector resilience testing)
+    discovery_questions:
+      - What security controls do you currently have (EDR, SIEM, WAF, DLP)?
+      - Have you run a BAS or red team exercise before? What were findings?
+      - Which threat actors or attack scenarios are most relevant to your industry?
+      - What is the primary goal — compliance validation or genuine security improvement?
+      - Are purple team exercises (joint attacker/defender) in scope?
