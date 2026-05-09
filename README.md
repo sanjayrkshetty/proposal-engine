@@ -1,6 +1,6 @@
-# SISA Proposal Engine
+Proposal Engine
 
-Agentic pre-sales automation for SISA Information Security's DFIR service line.
+Agentic pre-sales automation for DFIR service line.
 
 Automates the full pre-sales workflow — discovery → scoping → proposal generation — for:
 - **DFIR Retainer** — pre-contracted priority access to forensic experts
