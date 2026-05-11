@@ -5,6 +5,7 @@ from .proposal_agent import ProposalAgent
 from .questionnaire_agent import QuestionnaireAgent
 from .pricing_agent import PricingAgent
 from .gam_agent import GAMAgent
+from .critic_agent import CriticAgent
 
 __all__ = [
     "BaseAgent",
@@ -14,4 +15,5 @@ __all__ = [
     "QuestionnaireAgent",
     "PricingAgent",
     "GAMAgent",
+    "CriticAgent",
 ]

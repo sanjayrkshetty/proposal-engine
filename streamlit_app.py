@@ -874,8 +874,16 @@ else:
 
 st.markdown("""
 <div style="margin-top:3rem;padding:1.5rem;border-top:1px solid #21262D;text-align:center">
-    <div style="font-size:0.75rem;color:#484F58;font-family:'JetBrains Mono',monospace">
+    <div style="font-size:0.75rem;color:#484F58;font-family:'JetBrains Mono',monospace;line-height:1.8">
         Proposal Engine · Agentic Pre-Sales Automation · Powered by Groq + Llama 3
+    </div>
+    <div style="margin-top:6px;font-size:0.7rem;color:#30363D;font-family:'JetBrains Mono',monospace">
+        Built by <a href="https://github.com/sanjayrkshetty" target="_blank"
+            style="color:#58A6FF;text-decoration:none">Sanjay R K Shetty</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/sanjayrkshetty/proposal-engine" target="_blank"
+            style="color:#58A6FF;text-decoration:none">github.com/sanjayrkshetty/proposal-engine</a>
+        &nbsp;·&nbsp; © 2026 Sanjay R K Shetty · All rights reserved
     </div>
 </div>
 """, unsafe_allow_html=True)
