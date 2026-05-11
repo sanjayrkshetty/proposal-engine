@@ -5,7 +5,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from .base_agent import BaseAgent
 
-os.environ.setdefault("GROQ_API_KEY", "os.environ.get("GROQ_API_KEY", "")")
+os.environ.setdefault("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
 
 EXEC_SUMMARY_PROMPT = """You are a senior Proposal Engine proposal writer.
 Write a compelling executive summary for the following engagement.

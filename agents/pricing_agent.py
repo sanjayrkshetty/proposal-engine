@@ -4,7 +4,7 @@ from pathlib import Path
 import yaml
 from .base_agent import BaseAgent
 
-os.environ.setdefault("GROQ_API_KEY", "os.environ.get("GROQ_API_KEY", "")")
+os.environ.setdefault("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
 
 PRICING_BASELINE_PATH = Path("config/pricing_baseline.yaml")
 

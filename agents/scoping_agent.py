@@ -2,7 +2,7 @@
 import os
 from .base_agent import BaseAgent
 
-os.environ.setdefault("GROQ_API_KEY", "os.environ.get("GROQ_API_KEY", "")")
+os.environ.setdefault("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
 
 SCOPING_PROMPT = """You are a Proposal Engine scoping specialist.
 Given a discovery brief and client context, produce a detailed scope estimate for a {service_name} engagement.

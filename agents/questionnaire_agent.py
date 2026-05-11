@@ -3,7 +3,7 @@ import os
 import importlib
 from .base_agent import BaseAgent
 
-os.environ.setdefault("GROQ_API_KEY", "os.environ.get("GROQ_API_KEY", "")")
+os.environ.setdefault("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
 
 QUESTIONNAIRE_PROMPT = """You are a Proposal Engine pre-sales specialist running a discovery questionnaire.
 Based on the client context provided, simulate realistic answers to the following questionnaire questions.
