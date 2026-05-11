@@ -833,6 +833,43 @@ if "results" in st.session_state and st.session_state["results"]:
                 use_container_width=True,
             )
 
+# ── Pipeline History ───────────────────────────────────────────────────────
+
+st.divider()
+st.markdown('<div class="section-header"><div class="section-dot" style="background:#A78BFA;box-shadow:0 0 8px rgba(167,139,250,0.6)"></div><div class="section-title">Pipeline History</div></div>', unsafe_allow_html=True)
+
+history_root = Path("outputs")
+if history_root.exists():
+    runs = sorted([d for d in history_root.iterdir() if d.is_dir()], reverse=True)
+    if runs:
+        for run_dir in runs[:10]:
+            meta_path = run_dir / "proposal_meta.json"
+            if not meta_path.exists():
+                continue
+            try:
+                meta = json.loads(meta_path.read_text(encoding="utf-8"))
+                with st.expander(f"**{meta.get('proposal_number', run_dir.name)}** — {meta.get('client', '?')} · {meta.get('service', '?')}"):
+                    hc1, hc2, hc3, hc4 = st.columns(4)
+                    hc1.metric("Proposal No.", meta.get("proposal_number", "—"))
+                    hc2.metric("Client", meta.get("client", "—"))
+                    hc3.metric("Service", meta.get("service", "—"))
+                    hc4.metric("Tier", meta.get("tier", "—"))
+                    proposal_md = run_dir / "proposal.md"
+                    if proposal_md.exists():
+                        st.download_button(
+                            "⬇ Download Proposal",
+                            data=proposal_md.read_bytes(),
+                            file_name=f"{meta.get('proposal_number', run_dir.name)}_proposal.md",
+                            mime="text/markdown",
+                            key=f"hist_{run_dir.name}",
+                        )
+            except Exception:
+                pass
+    else:
+        st.markdown('<div style="color:#484F58;font-size:0.85rem;font-family:monospace">No runs yet — generate a proposal above.</div>', unsafe_allow_html=True)
+else:
+    st.markdown('<div style="color:#484F58;font-size:0.85rem;font-family:monospace">outputs/ directory will appear after first run.</div>', unsafe_allow_html=True)
+
 # ── Footer ─────────────────────────────────────────────────────────────────
 
 st.markdown("""
