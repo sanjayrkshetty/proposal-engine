@@ -7,7 +7,8 @@ from groq import Groq
 # Inject API key at module load time
 os.environ.setdefault("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
 
-MODEL = "llama-3.3-70b-versatile"
+MODEL_FAST = "llama-3.1-8b-instant"   # fast, low tokens — questionnaire, discovery, scoping
+MODEL_PRO  = "llama-3.3-70b-versatile" # quality — proposal only
 
 
 class BaseAgent(ABC):
@@ -17,7 +18,7 @@ class BaseAgent(ABC):
         self.config = service_config
         api_key = os.environ.get("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
         self.client = Groq(api_key=api_key)
-        self.model = MODEL
+        self.model = MODEL_FAST  # default fast; proposal_agent overrides to MODEL_PRO
 
     def call_llm(self, prompt: str, max_tokens: int = 1024, temperature: float = 0.2) -> str:
         """Call Groq LLM and return raw text response."""

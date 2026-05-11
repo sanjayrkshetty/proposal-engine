@@ -26,6 +26,11 @@ Output ONLY the executive summary text, no headers."""
 
 
 class ProposalAgent(BaseAgent):
+    def __init__(self, service_config: dict):
+        super().__init__(service_config)
+        from .base_agent import MODEL_PRO
+        self.model = MODEL_PRO  # proposal quality needs the big model
+
     def run(self, brief_data: dict, scope_data: dict, client_info: dict,
             pricing_data: dict = None, gam_data: dict = None,
             proposal_number: str = "Proposal Engine-0001") -> dict:

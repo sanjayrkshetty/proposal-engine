@@ -56,10 +56,10 @@ class QuestionnaireAgent(BaseAgent):
         # Determine which questions to ask based on sub_bu / service context
         flat_questions = self._flatten_questions(questionnaire_data, sub_bu)
 
-        if mode == "ai":
-            answers = self._ai_simulate_answers(flat_questions, questionnaire_data, client_info, bu)
-        else:
+        if mode == "mock":
             answers = self._mock_answers(flat_questions)
+        else:
+            answers = self._ai_simulate_answers(flat_questions, questionnaire_data, client_info, bu)
 
         # Map answers to scope context
         scope_context = self._map_to_scope_context(bu, answers)
@@ -134,7 +134,7 @@ class QuestionnaireAgent(BaseAgent):
         )
 
         try:
-            answers = self.call_llm_json(prompt, max_tokens=1024)
+            answers = self.call_llm_json(prompt, max_tokens=512)
         except Exception:
             # Fallback to mock answers
             answers = self._mock_answers(questions)
