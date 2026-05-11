@@ -1,14 +1,17 @@
 """Discovery Agent — extracts pain points, regulatory drivers, and environment details."""
 import os
-import json
-import anthropic
+from .base_agent import BaseAgent
 
-DISCOVERY_PROMPT = """You are a DFIR pre-sales discovery specialist at SISA Information Security.
+os.environ.setdefault("GROQ_API_KEY", "os.environ.get("GROQ_API_KEY", "")")
+
+DISCOVERY_PROMPT = """You are a SISA Information Security pre-sales discovery specialist.
 Given client information for a {service_name} engagement, generate a structured discovery brief.
 
 Client: {client_name}
 Industry: {industry}
 Size: {size}
+Region: {region}
+Exec Summary Context: {exec_summary}
 
 Service: {service_name} — {service_description}
 
@@ -26,28 +29,19 @@ Output a JSON object with exactly these keys:
 Output ONLY the JSON, no other text."""
 
 
-class DiscoveryAgent:
-    def __init__(self, service_config: dict):
-        self.config = service_config
-        self.client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
-
+class DiscoveryAgent(BaseAgent):
     def run(self, client_info: dict) -> dict:
         prompt = DISCOVERY_PROMPT.format(
             service_name=self.config["name"],
-            service_description=self.config["description"],
+            service_description=self.config.get("description", ""),
             client_name=client_info.get("name") or "Unknown",
             industry=client_info.get("industry") or "Financial Services",
             size=client_info.get("size") or "Mid-market (500-5000 employees)",
+            region=client_info.get("region") or "India",
+            exec_summary=client_info.get("exec_summary") or "Not provided",
         )
 
-        msg = self.client.messages.create(
-            model="claude-haiku-4-5-20251001",
-            max_tokens=1024,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        raw = msg.content[0].text.strip()
-        data = json.loads(raw)
-
+        data = self.call_llm_json(prompt, max_tokens=1024)
         markdown = self._to_markdown(data, client_info)
         return {"data": data, "markdown": markdown}
 
