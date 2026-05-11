@@ -31,7 +31,7 @@ python main.py \
 **Console output:**
 ```
 ╭─────────────────── Starting ────────────────────╮
-│ Proposal Engine Proposal Engine                            │
+│ Proposal Engine                            │
 │ Service: DFIR Retainer                          │
 │ Mode: full                                      │
 ╰─────────────────────────────────────────────────╯
@@ -260,7 +260,7 @@ and dedicated forensic hours; Essential is insufficient for regulated banking en
 ```markdown
 # DFIR Retainer Proposal
 ## Apex Banking Group
-**Prepared by:** Proposal Engine | **Date:** 11 May 2026 | **Tier:** Enterprise | **Ref:** PROP/DFIR/RET/2026/001
+**Prepared by:** Proposal Engine | **Date:** 11 May 2026 | **Tier:** Enterprise | **Ref:** Proposal Engine/DFIR/RET/2026/001
 
 ---
 
@@ -363,7 +363,7 @@ Report delivery: 5 business days post-containment for P1/P2 incidents.
 4. **Onboarding** — forensic readiness assessment and playbook development (Weeks 1–4 of engagement)
 
 To proceed or schedule the discovery call, contact your Proposal Engine account manager or reach out directly:
-**David Okafor** | Director - Sales, India | david.o@sisa.com
+**David Okafor** | Director - Sales, India | contact@proposalengine.io
 ```
 
 ---

@@ -1,4 +1,4 @@
-# Proposal Engine Proposal Engine — Audit (Pre-Expansion)
+# Proposal Engine — Audit (Pre-Expansion)
 
 **Date:** 2026-05-11  
 **Auditor:** Automated Pre-Expansion Audit
