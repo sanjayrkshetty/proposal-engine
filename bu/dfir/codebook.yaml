@@ -1,0 +1,64 @@
+# DFIR BU — Pricing Codebook
+# All prices in INR. Regional multipliers applied by PricingAgent.
+
+services:
+  DFIR-R-ESS:
+    unit_price_inr: 450000
+    unit: month
+    min_qty: 3
+    max_qty: 12
+    discount_threshold_pct: 10
+    description: DFIR Retainer Essential — per month
+    notes: Minimum 3-month commitment. 5% discount at 6 months, 10% at 12 months.
+
+  DFIR-R-ENT:
+    unit_price_inr: 900000
+    unit: month
+    min_qty: 6
+    max_qty: 12
+    discount_threshold_pct: 10
+    description: DFIR Retainer Enterprise — per month
+    notes: Minimum 6-month commitment. 10% discount at 12 months.
+
+  DFIR-R-ELT:
+    unit_price_inr: 1800000
+    unit: month
+    min_qty: 12
+    max_qty: 24
+    discount_threshold_pct: 8
+    description: DFIR Retainer Elite — per month
+    notes: Minimum 12-month commitment. Subject to availability of senior resources.
+
+  IFI:
+    unit_price_inr: 350000
+    unit: week
+    min_qty: 2
+    max_qty: 6
+    discount_threshold_pct: 10
+    description: Internal Forensic Investigation — per week
+    notes: Complexity-driven. Large environments may require additional weeks.
+
+  CA:
+    unit_price_inr: 280000
+    unit: week
+    min_qty: 1
+    max_qty: 3
+    discount_threshold_pct: 10
+    description: Compromise Assessment — per week
+    notes: Based on up to 50 endpoints. Additional endpoints priced separately.
+
+  BAS:
+    unit_price_inr: 400000
+    unit: engagement
+    min_qty: 1
+    max_qty: 1
+    discount_threshold_pct: 10
+    description: Breach and Attack Simulation — flat fee per engagement
+    notes: 2-4 week engagement. Purple team exercises included.
+
+regional_multipliers:
+  India-North: 1.0
+  India-South: 1.0
+  MEE: 1.65
+  SEA: 1.50
+  NA: 1.90

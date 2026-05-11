@@ -1,0 +1,37 @@
+# Institute BU — Pricing Codebook
+# All prices in INR. Regional multipliers applied by PricingAgent.
+
+services:
+  INST-AWARENESS:
+    unit_price_inr: 180000
+    unit: session
+    min_qty: 1
+    max_qty: 10
+    discount_threshold_pct: 10
+    description: Security Awareness Training — per session (up to 50 attendees)
+    notes: Includes phishing simulation and culture assessment report. Travel extra.
+
+  INST-DFIR-CERT:
+    unit_price_inr: 85000
+    unit: participant
+    min_qty: 5
+    max_qty: 30
+    discount_threshold_pct: 10
+    description: DFIR Certification Program — per participant
+    notes: 40-hour curriculum. Group discount: 10% for 10+, 15% for 20+.
+
+  INST-SOC-ANALYST:
+    unit_price_inr: 95000
+    unit: participant
+    min_qty: 5
+    max_qty: 30
+    discount_threshold_pct: 10
+    description: SOC Analyst Development Program — per participant
+    notes: 6-8 week program. Includes lab access (6 months) and certification exam.
+
+regional_multipliers:
+  India-North: 1.0
+  India-South: 1.0
+  MEE: 1.50
+  SEA: 1.40
+  NA: 1.80

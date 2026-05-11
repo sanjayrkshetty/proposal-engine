@@ -1,0 +1,28 @@
+# MXDR BU — Pricing Codebook
+# All prices in INR. Regional multipliers applied by PricingAgent.
+
+services:
+  MXDR-ESS:
+    unit_price_inr: 350000
+    unit: month
+    min_qty: 6
+    max_qty: 24
+    discount_threshold_pct: 10
+    description: MXDR Essential — per month (up to 500 endpoints, 5 GB/day SIEM)
+    notes: Shared analyst pool. 24/7 monitoring. Additional endpoints INR 500/endpoint/month.
+
+  MXDR-ENT:
+    unit_price_inr: 750000
+    unit: month
+    min_qty: 12
+    max_qty: 36
+    discount_threshold_pct: 8
+    description: MXDR Enterprise — per month (unlimited endpoints, 50 GB/day SIEM)
+    notes: Dedicated analyst pair. Additional SIEM volume priced per GB above 50 GB.
+
+regional_multipliers:
+  India-North: 1.0
+  India-South: 1.0
+  MEE: 1.65
+  SEA: 1.50
+  NA: 1.90

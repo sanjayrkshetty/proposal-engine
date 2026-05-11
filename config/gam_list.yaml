@@ -1,0 +1,98 @@
+stale_threshold_days: 90
+
+gam_list:
+  - id: GAM-001
+    name: Priya Venkataraman
+    email: priya.venkataraman@proposalengine.io
+    phone: "+91-80-4040-5001"
+    region: India-South
+    title: Global Account Manager — South India & Karnataka
+    active: true
+    last_reviewed: "2026-03-15"
+    accounts_managed:
+      - Banking & Financial Services
+      - IT & Technology
+    notes: Primary GAM for Bengaluru corridor. Handles RBI-regulated entities.
+
+  - id: GAM-002
+    name: Ankit Sharma
+    email: ankit.sharma@proposalengine.io
+    phone: "+91-11-4040-5002"
+    region: India-North
+    title: Global Account Manager — North India & NCR
+    active: true
+    last_reviewed: "2026-04-20"
+    accounts_managed:
+      - Government & PSU
+      - BFSI
+      - Healthcare
+    notes: Covers Delhi-NCR, Punjab, Rajasthan accounts. Strong in government sector.
+
+  - id: GAM-003
+    name: Fatima Al-Rashid
+    email: fatima.alrashid@proposalengine.io
+    phone: "+971-4-404-5003"
+    region: MEE
+    title: Global Account Manager — Middle East & Africa
+    active: true
+    last_reviewed: "2026-04-05"
+    accounts_managed:
+      - Banking & Financial Services
+      - Telecom
+      - Government
+    notes: Covers UAE, Saudi Arabia, Bahrain, Egypt, and Kenya accounts.
+
+  - id: GAM-004
+    name: James Tan Wei Liang
+    email: james.tan@proposalengine.io
+    phone: "+65-6404-5004"
+    region: SEA
+    title: Global Account Manager — Southeast Asia
+    active: true
+    last_reviewed: "2026-02-28"
+    accounts_managed:
+      - FinTech
+      - Banking
+      - E-commerce
+    notes: Covers Singapore, Malaysia, Thailand, Indonesia, Philippines accounts. MAS TRM specialist.
+
+  - id: GAM-005
+    name: Rebecca Okonkwo
+    email: rebecca.okonkwo@proposalengine.io
+    phone: "+1-415-404-5005"
+    region: NA
+    title: Global Account Manager — North America
+    active: true
+    last_reviewed: "2026-04-18"
+    accounts_managed:
+      - Insurance
+      - Financial Services
+      - Healthcare
+    notes: Covers US and Canada. Strong in insurance sector and post-quantum advisory.
+
+  - id: GAM-006
+    name: Suresh Krishnamurthy
+    email: suresh.krishnamurthy@proposalengine.io
+    phone: "+91-22-4040-5006"
+    region: India-South
+    title: Senior Global Account Manager — West India & Mumbai
+    active: true
+    last_reviewed: "2026-03-30"
+    accounts_managed:
+      - Banking & Financial Services
+      - Capital Markets
+      - Insurance
+    notes: Senior GAM for Mumbai financial corridor. SEBI and IRDAI regulatory expertise.
+
+  - id: GAM-007
+    name: Meera Pillai
+    email: meera.pillai@proposalengine.io
+    phone: "+91-44-4040-5007"
+    region: India-South
+    title: Global Account Manager — Tamil Nadu & Andhra Pradesh
+    active: false
+    last_reviewed: "2025-10-10"
+    accounts_managed:
+      - Manufacturing
+      - Retail
+    notes: Currently on leave. Escalate to Priya Venkataraman for coverage.

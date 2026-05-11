@@ -1,0 +1,37 @@
+# DPG BU — Pricing Codebook
+# All prices in INR. Regional multipliers applied by PricingAgent.
+
+services:
+  DPG-DPO:
+    unit_price_inr: 200000
+    unit: month
+    min_qty: 12
+    max_qty: 24
+    discount_threshold_pct: 10
+    description: DPO-as-a-Service — per month (retainer)
+    notes: Named DPO resource. Includes up to 20 hours/month of advisory time.
+
+  DPG-DPIA:
+    unit_price_inr: 320000
+    unit: engagement
+    min_qty: 1
+    max_qty: 5
+    discount_threshold_pct: 10
+    description: Data Protection Impact Assessment — flat fee per processing activity
+    notes: Per processing activity assessed. Complex systems may require multiple DPIAs.
+
+  DPG-AUDIT:
+    unit_price_inr: 480000
+    unit: engagement
+    min_qty: 1
+    max_qty: 3
+    discount_threshold_pct: 10
+    description: Privacy Audit — flat fee per engagement
+    notes: Full programme audit. Includes gap analysis, roadmap, and executive report.
+
+regional_multipliers:
+  India-North: 1.0
+  India-South: 1.0
+  MEE: 1.60
+  SEA: 1.45
+  NA: 1.85
