@@ -1,4 +1,4 @@
-# DEMO — sisa-proposal-engine
+# DEMO — proposal-engine
 
 3-agent agentic pipeline for DFIR pre-sales automation. Each run produces three chained outputs: discovery brief → scope estimate → full proposal.
 
@@ -31,7 +31,7 @@ python main.py \
 **Console output:**
 ```
 ╭─────────────────── Starting ────────────────────╮
-│ SISA Proposal Engine                            │
+│ Proposal Engine                            │
 │ Service: DFIR Retainer                          │
 │ Mode: full                                      │
 ╰─────────────────────────────────────────────────╯
@@ -260,13 +260,13 @@ and dedicated forensic hours; Essential is insufficient for regulated banking en
 ```markdown
 # DFIR Retainer Proposal
 ## Apex Banking Group
-**Prepared by:** SISA Information Security | **Date:** 11 May 2026 | **Tier:** Enterprise | **Ref:** SISA/DFIR/RET/2026/001
+**Prepared by:** Proposal Engine | **Date:** 11 May 2026 | **Tier:** Enterprise | **Ref:** Proposal Engine/DFIR/RET/2026/001
 
 ---
 
 ## 1. Executive Summary
 
-Apex Banking Group operates in a high-threat environment with clear regulatory obligations under RBI's Cybersecurity Framework and PCI DSS v4.0, yet currently lacks a pre-contracted incident response capability with defined SLAs. A single uncontained breach in a banking environment of this scale can result in regulatory penalties, card scheme fines, and reputational damage that far exceed the cost of proactive preparedness. SISA's DFIR Retainer gives Apex Banking Group guaranteed 4-hour response, dedicated forensic capacity, and the documented IR programme required to satisfy upcoming compliance audits.
+Apex Banking Group operates in a high-threat environment with clear regulatory obligations under RBI's Cybersecurity Framework and PCI DSS v4.0, yet currently lacks a pre-contracted incident response capability with defined SLAs. A single uncontained breach in a banking environment of this scale can result in regulatory penalties, card scheme fines, and reputational damage that far exceed the cost of proactive preparedness. Our DFIR Retainer gives Apex Banking Group guaranteed 4-hour response, dedicated forensic capacity, and the documented IR programme required to satisfy upcoming compliance audits.
 
 ---
 
@@ -274,15 +274,15 @@ Apex Banking Group operates in a high-threat environment with clear regulatory o
 
 Apex Banking Group faces a convergence of pressures that make structured IR preparedness urgent rather than aspirational. The absence of a pre-contracted retainer means that in the event of a compromise, the bank would be negotiating vendor terms during active containment — a scenario that compounds exposure. Your PCI DSS CDE and RBI obligations mandate not just a response capability, but a documented, tested, and auditable one. Legacy infrastructure on-premise, combined with limited SOC coverage outside business hours, creates response blind spots that adversaries exploit. The recent banking sector compromise across peer institutions in Q1 2026 underscores the relevance of the threat.
 
-SISA's engagement is designed to close these gaps through a structured retainer that delivers both compliance documentation and genuine operational readiness.
+Our engagement is designed to close these gaps through a structured retainer that delivers both compliance documentation and genuine operational readiness.
 
 ---
 
 ## 3. Our Approach
 
-SISA follows a four-phase DFIR methodology: **Preparation**, **Detection and Triage**, **Containment and Eradication**, and **Recovery and Lessons Learned** — aligned to NIST SP 800-61r2 and CERT-In reporting requirements.
+Proposal Engine follows a four-phase DFIR methodology: **Preparation**, **Detection and Triage**, **Containment and Eradication**, and **Recovery and Lessons Learned** — aligned to NIST SP 800-61r2 and CERT-In reporting requirements.
 
-Under this retainer, SISA will:
+Under this retainer, Proposal Engine will:
 - Conduct an onboarding forensic readiness assessment (environment mapping, logging adequacy, evidence preservation procedures)
 - Develop a tailored Incident Response Playbook covering credential compromise, ransomware, insider threat, and BEC scenarios
 - Maintain dedicated standby capacity — GCFA and GCIH-certified forensic investigators available 24/7 within SLA
@@ -318,7 +318,7 @@ Under this retainer, SISA will:
 
 ## 6. Team and Credentials
 
-SISA's DFIR practice is staffed by investigators holding GCFA (GIAC Certified Forensic Analyst), GCIH (GIAC Certified Incident Handler), and CREST certifications. The team has handled banking sector incidents across India, MEA, and Southeast Asia, with specific expertise in core banking system forensics and PCI DSS breach response. SISA holds PFI (PCI Forensic Investigator) status — a requirement for any breach investigation involving card data.
+Our DFIR practice is staffed by investigators holding GCFA (GIAC Certified Forensic Analyst), GCIH (GIAC Certified Incident Handler), and CREST certifications. The team has handled banking sector incidents across India, MEA, and Southeast Asia, with specific expertise in core banking system forensics and PCI DSS breach response. Proposal Engine holds PFI (PCI Forensic Investigator) status — a requirement for any breach investigation involving card data.
 
 ---
 
@@ -346,7 +346,7 @@ Report delivery: 5 business days post-containment for P1/P2 incidents.
 
 ---
 
-## 9. Why SISA
+## 9. Why Proposal Engine
 
 - **PFI-accredited** — one of a limited number of firms globally authorised to conduct PCI DSS breach investigations; directly relevant to Apex Banking Group's card data environment
 - **Banking sector depth** — extensive experience with core banking forensics, RBI regulatory reporting, and SEBI CSCRF requirements across India and MEA
@@ -362,8 +362,8 @@ Report delivery: 5 business days post-containment for P1/P2 incidents.
 3. **Commercial alignment** — confirm tier, prepaid hours, and contract term; legal review of SLA schedule
 4. **Onboarding** — forensic readiness assessment and playbook development (Weeks 1–4 of engagement)
 
-To proceed or schedule the discovery call, contact your SISA account manager or reach out directly:
-**David Okafor** | Director - Sales, India | david.o@sisa.com
+To proceed or schedule the discovery call, contact your Proposal Engine account manager or reach out directly:
+**David Okafor** | Director - Sales, India | contact@proposalengine.io
 ```
 
 ---

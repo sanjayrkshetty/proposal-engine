@@ -32,7 +32,7 @@ FULL_PLACEHOLDER_SET = {
     "{{PROPOSAL_NO}}": "PROP-2026-INDIAS-0001",
     "{{DATE}}": "11 May 2026",
     "{{VALID_UNTIL}}": "10 June 2026",
-    "{{BILLING_CONTACT}}": "Test GAM | test.gam@sisainfosec.com",
+    "{{BILLING_CONTACT}}": "Test GAM | test.gam@proposalengine.io",
     "{{SCOPE_CONTEXT}}": "Test scope context.",
     "{{PRICING_TABLE}}": "| Item | Price |\n|------|-------|\n| Test | ₹100 |",
     "{{SERVICE_NAME}}": "Test Service",
@@ -71,7 +71,7 @@ def test_template_contains_proposal_no_after_render(template_path):
 @pytest.mark.parametrize("template_path", ALL_TEMPLATES)
 def test_template_contains_billing_contact_after_render(template_path):
     rendered = render_template(template_path)
-    assert "test.gam@sisainfosec.com" in rendered
+    assert "test.gam@proposalengine.io" in rendered
 
 
 @pytest.mark.parametrize("template_path", ALL_TEMPLATES)

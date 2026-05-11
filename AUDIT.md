@@ -1,4 +1,4 @@
-# SISA Proposal Engine — Audit (Pre-Expansion)
+# Proposal Engine — Audit (Pre-Expansion)
 
 **Date:** 2026-05-11  
 **Auditor:** Automated Pre-Expansion Audit
@@ -8,7 +8,7 @@
 ## 1. Directory Structure
 
 ```
-sisa-proposal-engine/
+proposal-engine/
 ├── main.py                   (CLI entry point)
 ├── requirements.txt          (anthropic>=0.25.0 — MUST replace with groq)
 ├── README.md

@@ -878,7 +878,7 @@ st.markdown("""
         Proposal Engine · Agentic Pre-Sales Automation · Powered by Groq + Llama 3
     </div>
     <div style="margin-top:6px;font-size:0.7rem;color:#30363D;font-family:'JetBrains Mono',monospace">
-        Built by <a href="https://github.com/sanjayrkshetty" target="_blank"
+        Built by <a href="https://sanjayrkshetty.vercel.app" target="_blank"
             style="color:#58A6FF;text-decoration:none">Sanjay R K Shetty</a>
         &nbsp;·&nbsp;
         <a href="https://github.com/sanjayrkshetty/proposal-engine" target="_blank"
