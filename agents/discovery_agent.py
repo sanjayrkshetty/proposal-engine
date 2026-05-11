@@ -1,10 +1,7 @@
 """Discovery Agent — extracts pain points, regulatory drivers, and environment details."""
-import os
 from .base_agent import BaseAgent
 
-os.environ.setdefault("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
-
-DISCOVERY_PROMPT = """You are a SISA Information Security pre-sales discovery specialist.
+DISCOVERY_PROMPT = """You are a professional pre-sales discovery specialist.
 Given client information for a {service_name} engagement, generate a structured discovery brief.
 
 Client: {client_name}

@@ -1,4 +1,4 @@
-# SISA Information Security
+# {{COMPANY_NAME}}
 ## Payment Security Assessment
 ### Commercial Proposal
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About SISA Information Security
+## About {{COMPANY_NAME}}
 
-SISA is Asia-Pacific's only company holding both PFI (PCI Forensic Investigator) and QSA (Qualified Security Assessor) accreditation from the PCI Security Standards Council. This dual designation uniquely positions SISA to deliver PCI DSS assessments with the forensic rigour of an incident investigator — not just a checkbox auditor.
+{{COMPANY_NAME}} is Asia-Pacific's only company holding both PFI (PCI Forensic Investigator) and QSA (Qualified Security Assessor) accreditation from the PCI Security Standards Council. This dual designation uniquely positions {{COMPANY_NAME}} to deliver PCI DSS assessments with the forensic rigour of an incident investigator — not just a checkbox auditor.
 
 ---
 
@@ -65,7 +65,7 @@ SISA is Asia-Pacific's only company holding both PFI (PCI Forensic Investigator)
 
 1. Valid until **{{VALID_UNTIL}}**.
 2. PCI DSS assessment scope is based on {{CLIENT_NAME}}'s CDE as described during discovery. Changes to CDE scope post-commencement may require a change order.
-3. SISA's QSA status is current and in good standing with the PCI SSC. Copies of credentials available on request.
+3. {{COMPANY_NAME}}'s QSA status is current and in good standing with the PCI SSC. Copies of credentials available on request.
 4. Travel costs to client premises charged at actuals with pre-approval.
 5. Payment: 50% advance; 50% on report delivery.
 

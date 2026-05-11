@@ -77,7 +77,7 @@ QUESTIONNAIRE = {
                 {"id": "Q11", "text": "What is the current business impact? (e.g., systems down, operations halted, revenue loss)", "type": "text"},
                 {"id": "Q12", "text": "What is your desired engagement start timeline?", "type": "choice",
                  "options": ["Immediate (today/tomorrow)", "Within 48 hours", "Within 1 week", "Planned (no active threat)"]},
-                {"id": "Q13", "text": "Do you have a current IR retainer with any vendor? If yes, why are you reaching out to SISA?", "type": "text"},
+                {"id": "Q13", "text": "Do you have a current IR retainer with any vendor? If yes, why are you exploring alternatives?", "type": "text"},
             ]
         },
     ]

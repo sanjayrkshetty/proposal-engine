@@ -1,14 +1,22 @@
 #!/usr/bin/env python3
-"""SISA Proposal Engine — Multi-BU CLI entry point."""
+"""Proposal Engine — Multi-BU CLI entry point."""
 
 import os
 import sys
 
-# Force UTF-8 on Windows to handle special chars in Rich output
+# Force UTF-8 on Windows
 if sys.platform == "win32":
     import io
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+
+# Load .env if present
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv optional — env vars can be set externally
+
 import click
 import yaml
 import json
@@ -17,9 +25,6 @@ from datetime import datetime
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-
-# Inject GROQ API key before any agent imports
-os.environ["GROQ_API_KEY"] = "YOUR_GROQ_API_KEY_HERE"
 
 from agents.questionnaire_agent import QuestionnaireAgent
 from agents.discovery_agent import DiscoveryAgent
@@ -31,6 +36,7 @@ from agents.gam_agent import GAMAgent
 console = Console()
 
 REGIONS = ["India-North", "India-South", "MEE", "SEA", "NA"]
+COMPANY_NAME = os.environ.get("COMPANY_NAME", "Proposal Engine")
 
 
 def load_all_services() -> dict:
@@ -56,21 +62,18 @@ def get_next_proposal_number(service_config: dict, region: str) -> str:
     else:
         sequences = {}
 
-    fmt = service_config.get("proposal_number_format", "SISA-{BU}-{YEAR}-{SEQ:04d}")
-    bu = service_config.get("bu", "SISA").upper()
+    fmt = service_config.get("proposal_number_format", "PROP-{BU}-{YEAR}-{SEQ:04d}")
+    bu = service_config.get("bu", "PE").upper()
     year = datetime.now().strftime("%Y")
     region_code = region.replace("-", "").upper()[:6] if region else "IN"
 
-    # Key for this format type
     seq_key = f"{bu}_{year}_{region_code}"
     current_seq = sequences.get(seq_key, 0) + 1
     sequences[seq_key] = current_seq
 
-    # Persist
     with open(seq_path, "w", encoding="utf-8") as f:
         json.dump(sequences, f, indent=2)
 
-    # Format the proposal number
     proposal_num = fmt.format(
         YEAR=year,
         REGION=region_code,
@@ -78,11 +81,6 @@ def get_next_proposal_number(service_config: dict, region: str) -> str:
         SEQ=current_seq,
     )
     return proposal_num
-
-
-def service_autocomplete(ctx, param, incomplete):
-    services = load_all_services()
-    return [k for k in services.keys() if k.startswith(incomplete.upper())]
 
 
 @click.command()
@@ -108,35 +106,31 @@ def service_autocomplete(ctx, param, incomplete):
 @click.option("--output-dir", default="outputs", help="Output directory root")
 def main(service, client, industry, size, bu, tier, gam, region,
          exec_summary, mode, input_file, discount, output_dir):
-    """SISA Proposal Engine — agentic multi-BU pre-sales automation."""
+    """Proposal Engine — agentic multi-BU pre-sales automation."""
 
-    # Load and validate service config
     try:
         service_config = load_service_config(service)
     except ValueError as e:
         console.print(f"[bold red]Error:[/bold red] {e}")
         sys.exit(1)
 
-    # Startup banner
     console.print(Panel(
-        f"[bold cyan]SISA Proposal Engine[/bold cyan]\n"
+        f"[bold cyan]{COMPANY_NAME}[/bold cyan]\n"
         f"Service: [yellow]{service_config['name']}[/yellow] ({service})\n"
         f"BU: [blue]{service_config['bu'].upper()}[/blue] | "
         f"Tier: [green]{service_config.get('tier', 'Standard')}[/green] | "
         f"Region: [magenta]{region}[/magenta]\n"
         f"Client: [white]{client}[/white] | Mode: [cyan]{mode}[/cyan]",
-        title="[bold]SISA Proposal Engine — Starting[/bold]",
+        title=f"[bold]{COMPANY_NAME} — Starting[/bold]",
         border_style="cyan"
     ))
 
-    # Output path
     timestamp = datetime.now().strftime("%Y-%m-%d")
     client_slug = client.replace(" ", "-").replace("/", "-")[:30]
     run_id = f"{timestamp}_{client_slug}_{service_config['bu'].upper()}_{service}"
     out_path = Path(output_dir) / run_id
     out_path.mkdir(parents=True, exist_ok=True)
 
-    # GAM resolution
     console.print("\n[bold]GAM Check[/bold]")
     gam_agent = GAMAgent({})
     stale = gam_agent.check_stale()
@@ -152,7 +146,6 @@ def main(service, client, industry, size, bu, tier, gam, region,
     console.print(f"  [green]✓[/green] GAM resolved: {gam_data_raw.get('name', 'Unknown')} "
                   f"({gam_data_raw.get('email', '')})")
 
-    # Client info dict
     client_info = {
         "name": client,
         "industry": industry,
@@ -162,7 +155,6 @@ def main(service, client, industry, size, bu, tier, gam, region,
         "scope_context": "",
     }
 
-    # Generate proposal number early (persists regardless of mode)
     proposal_number = get_next_proposal_number(service_config, region)
     console.print(f"\n  [dim]Proposal Number:[/dim] [bold]{proposal_number}[/bold]")
 
@@ -170,7 +162,7 @@ def main(service, client, industry, size, bu, tier, gam, region,
     scope = None
     questionnaire_result = None
 
-    # ── Phase 0: Questionnaire ─────────────────────────────────────────────
+    # Phase 0: Questionnaire
     if mode in ("full",):
         console.print("\n[bold]Phase 0 — Questionnaire[/bold]")
         q_agent = QuestionnaireAgent(service_config)
@@ -182,17 +174,15 @@ def main(service, client, industry, size, bu, tier, gam, region,
         (out_path / "questionnaire.json").write_text(
             json.dumps(questionnaire_result, indent=2), encoding="utf-8"
         )
-        # Inject scope context into client_info
         if questionnaire_result.get("scope_context"):
             client_info["scope_context"] = questionnaire_result["scope_context"]
-        console.print(f"  [green]✓[/green] Questionnaire complete → {out_path}/questionnaire.json")
+        console.print(f"  [green]✓[/green] Questionnaire complete")
 
-    # ── Phase 1: Discovery ─────────────────────────────────────────────────
+    # Phase 1: Discovery
     if mode in ("full", "discovery"):
         console.print("\n[bold]Phase 1 — Discovery[/bold]")
         d_agent = DiscoveryAgent(service_config)
         brief = d_agent.run(client_info)
-        # Apply tier override
         if tier:
             brief["data"]["recommended_tier"] = tier
         (out_path / "discovery_brief.md").write_text(brief["markdown"], encoding="utf-8")
@@ -201,12 +191,11 @@ def main(service, client, industry, size, bu, tier, gam, region,
         )
         console.print(f"  [green]✓[/green] Discovery brief → {out_path}/discovery_brief.md")
 
-    # Load brief from file if provided
     if input_file and not brief:
         with open(input_file, encoding="utf-8") as f:
             brief = {"data": json.load(f)}
 
-    # ── Phase 2: Scoping ───────────────────────────────────────────────────
+    # Phase 2: Scoping
     if mode in ("full", "scope") and brief:
         console.print("\n[bold]Phase 2 — Scoping[/bold]")
         s_agent = ScopingAgent(service_config)
@@ -217,12 +206,11 @@ def main(service, client, industry, size, bu, tier, gam, region,
         )
         console.print(f"  [green]✓[/green] Scope estimate → {out_path}/scope_estimate.md")
 
-    # ── Phase 3: Pricing ───────────────────────────────────────────────────
+    # Phase 3: Pricing
     pricing_result = None
     if mode in ("full",) and scope:
         console.print("\n[bold]Phase 3 — Pricing[/bold]")
         p_agent = PricingAgent(service_config)
-        # Determine quantity from scope
         effort = scope["data"].get("effort_days", {})
         qty = effort.get("total", 1) or 1
         pricing_result = p_agent.build_pricing_table(
@@ -231,7 +219,6 @@ def main(service, client, industry, size, bu, tier, gam, region,
             region=region,
             discount_pct=discount,
         )
-        # Check inflation
         acv = pricing_result.get("total_inr", 0)
         inflation = p_agent.check_inflation(acv, region, service_config["bu"])
         if inflation.get("alert"):
@@ -245,23 +232,17 @@ def main(service, client, industry, size, bu, tier, gam, region,
                     title="Pricing Alert"
                 )
             )
-        # Discount gate
         if discount > 0 and pricing_result.get("discount_approval_required"):
             approval_msg = (
                 f"Discount of {discount}% exceeds the approval threshold "
                 f"({pricing_result.get('discount_threshold', 10)}%) for {service}.\n"
                 f"Please obtain approval from Sales Director before sending proposal."
             )
-            (out_path / "discount_approval_required.txt").write_text(
-                approval_msg, encoding="utf-8"
-            )
-            console.print(
-                Panel(
-                    f"[red]⚠ DISCOUNT APPROVAL REQUIRED[/red]\n{approval_msg}",
-                    border_style="red",
-                    title="Discount Gate"
-                )
-            )
+            (out_path / "discount_approval_required.txt").write_text(approval_msg, encoding="utf-8")
+            console.print(Panel(
+                f"[red]⚠ DISCOUNT APPROVAL REQUIRED[/red]\n{approval_msg}",
+                border_style="red", title="Discount Gate"
+            ))
         (out_path / "pricing_table.json").write_text(
             json.dumps(pricing_result, indent=2), encoding="utf-8"
         )
@@ -269,7 +250,7 @@ def main(service, client, industry, size, bu, tier, gam, region,
         if pricing_result.get("pricing_table_md"):
             console.print(pricing_result["pricing_table_md"])
 
-    # ── Phase 4: Proposal ──────────────────────────────────────────────────
+    # Phase 4: Proposal
     if mode in ("full", "proposal") and brief and scope:
         console.print("\n[bold]Phase 4 — Proposal[/bold]")
         prop_agent = ProposalAgent(service_config)
@@ -289,7 +270,6 @@ def main(service, client, industry, size, bu, tier, gam, region,
         )
         console.print(f"  [green]✓[/green] Proposal → {out_path}/proposal.md")
 
-    # Summary
     console.print(Panel(
         f"[bold green]Pipeline Complete[/bold green]\n"
         f"Proposal No: [bold]{proposal_number}[/bold]\n"

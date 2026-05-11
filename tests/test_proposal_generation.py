@@ -22,14 +22,14 @@ REQUIRED_PLACEHOLDERS = [
 ]
 
 PROPOSAL_NO_PATTERNS = {
-    "dfir": r"SISA-\d{4}-[A-Z]+-\d{4}",
-    "default": r"SISA-[A-Z]+-\d{4}-\d{4}",
+    "dfir": r"PROP-[A-Z]+-\d{4}-\d{4}",
+    "default": r"PROP-[A-Z]+-\d{4}-\d{4}",
 }
 
 FULL_PLACEHOLDER_SET = {
     "{{CLIENT_NAME}}": "Acme Corp",
     "{{EXEC_SUMMARY}}": "Test executive summary for unit testing.",
-    "{{PROPOSAL_NO}}": "SISA-2026-INDIAS-0001",
+    "{{PROPOSAL_NO}}": "PROP-2026-INDIAS-0001",
     "{{DATE}}": "11 May 2026",
     "{{VALID_UNTIL}}": "10 June 2026",
     "{{BILLING_CONTACT}}": "Test GAM | test.gam@sisainfosec.com",
@@ -39,6 +39,7 @@ FULL_PLACEHOLDER_SET = {
     "{{SLA_TIER}}": "Enterprise",
     "{{ASSUMPTIONS}}": "- Standard assumptions apply",
     "{{REGION}}": "India-South",
+    "{{COMPANY_NAME}}": "Proposal Engine",
 }
 
 
@@ -64,7 +65,7 @@ def test_template_contains_client_name_after_render(template_path):
 @pytest.mark.parametrize("template_path", ALL_TEMPLATES)
 def test_template_contains_proposal_no_after_render(template_path):
     rendered = render_template(template_path)
-    assert "SISA-2026-INDIAS-0001" in rendered
+    assert "PROP-2026-INDIAS-0001" in rendered
 
 
 @pytest.mark.parametrize("template_path", ALL_TEMPLATES)

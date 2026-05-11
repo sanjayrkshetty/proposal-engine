@@ -1,4 +1,4 @@
-# SISA Information Security
+# {{COMPANY_NAME}}
 ## Managed Extended Detection & Response — Essential
 ### Commercial Proposal
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About SISA Information Security
+## About {{COMPANY_NAME}}
 
-SISA Information Security operates a 24/7 Security Operations Centre (SOC) from Bengaluru, staffed by certified analysts and threat intelligence specialists. SISA MXDR combines endpoint, network, cloud, and identity telemetry into a unified detection and response capability, backed by SISA's forensic expertise for high-confidence incident escalation.
+{{COMPANY_NAME}} operates a 24/7 Security Operations Centre (SOC) from Bengaluru, staffed by certified analysts and threat intelligence specialists. {{COMPANY_NAME}} MXDR combines endpoint, network, cloud, and identity telemetry into a unified detection and response capability, backed by {{COMPANY_NAME}}'s forensic expertise for high-confidence incident escalation.
 
 ---
 

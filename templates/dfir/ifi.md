@@ -1,4 +1,4 @@
-# SISA Information Security
+# {{COMPANY_NAME}}
 ## Internal Forensic Investigation
 ### Commercial Proposal
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About SISA Information Security
+## About {{COMPANY_NAME}}
 
-SISA Information Security is Asia-Pacific's leading forensic investigation and cybersecurity firm, holding dual PFI and QSA accreditation from the PCI Security Standards Council. With 1,000+ incident investigations globally, SISA's forensic team combines deep technical expertise with regulatory fluency across PCI DSS, CERT-In, DPDP Act, RBI, and ISO/IEC 27001 frameworks.
+{{COMPANY_NAME}} is Asia-Pacific's leading forensic investigation and cybersecurity firm, holding dual PFI and QSA accreditation from the PCI Security Standards Council. With 1,000+ incident investigations globally, {{COMPANY_NAME}}'s forensic team combines deep technical expertise with regulatory fluency across PCI DSS, CERT-In, DPDP Act, RBI, and ISO/IEC 27001 frameworks.
 
 ---
 
@@ -32,7 +32,7 @@ SISA Information Security is Asia-Pacific's leading forensic investigation and c
 
 ## Scope of Services — Internal Forensic Investigation
 
-SISA will conduct a thorough forensic investigation to establish the facts, reconstruct the attack timeline, and provide {{CLIENT_NAME}} with the evidence needed to remediate, report, and recover.
+{{COMPANY_NAME}} will conduct a thorough forensic investigation to establish the facts, reconstruct the attack timeline, and provide {{CLIENT_NAME}} with the evidence needed to remediate, report, and recover.
 
 **In Scope:**
 - System memory and disk forensics (compromised endpoints and servers)
@@ -69,9 +69,9 @@ SISA will conduct a thorough forensic investigation to establish the facts, reco
 1. This proposal is valid until **{{VALID_UNTIL}}**.
 2. Prices are exclusive of applicable taxes.
 3. The scope is based on the information provided during discovery. Additional systems or data sources discovered during investigation may require a change order.
-4. SISA will not access systems outside the agreed scope without written authorisation.
-5. Evidence is handled under SISA's ISO 27001-certified chain of custody procedures.
-6. Regulatory reporting (CERT-In 6-hour, PCI DSS) is coordinated in conjunction with {{CLIENT_NAME}}'s legal and compliance teams. SISA does not file regulatory notices on behalf of the client without explicit written instruction.
+4. {{COMPANY_NAME}} will not access systems outside the agreed scope without written authorisation.
+5. Evidence is handled under {{COMPANY_NAME}}'s ISO 27001-certified chain of custody procedures.
+6. Regulatory reporting (CERT-In 6-hour, PCI DSS) is coordinated in conjunction with {{CLIENT_NAME}}'s legal and compliance teams. {{COMPANY_NAME}} does not file regulatory notices on behalf of the client without explicit written instruction.
 7. Payment: 50% advance; 50% on delivery of final report.
 
 ---

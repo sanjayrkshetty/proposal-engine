@@ -18,7 +18,7 @@ QUESTIONNAIRE = {
                 {"id": "Q1a", "text": "Has a phishing simulation been conducted previously?", "type": "yesno", "branch_of": "Security Awareness (all staff)"},
                 {"id": "Q1b", "text": "What awareness topics are highest priority? (e.g., phishing, social engineering, data handling)", "type": "text", "branch_of": "Security Awareness (all staff)"},
                 {"id": "Q1c", "text": "What is the current experience level of analysts?", "type": "choice", "options": ["Junior (0-2 years)", "Mid-level (2-5 years)", "Senior (5+ years)"], "branch_of": "DFIR Certification (analysts)"},
-                {"id": "Q1d", "text": "Are participants targeting GCFA, GCIH, or SISA DFIR certification?", "type": "text", "branch_of": "DFIR Certification (analysts)"},
+                {"id": "Q1d", "text": "Are participants targeting GCFA, GCIH, or a vendor DFIR certification?", "type": "text", "branch_of": "DFIR Certification (analysts)"},
                 {"id": "Q1e", "text": "Are you building a new SOC or upskilling an existing team?", "type": "choice", "options": ["New SOC build", "Upskilling existing team"], "branch_of": "SOC Analyst Development"},
                 {"id": "Q1f", "text": "Which L1/L2/L3 analyst tracks are required?", "type": "multiselect", "options": ["L1 Alert Triage", "L2 Investigation", "L3 Threat Hunting"], "branch_of": "SOC Analyst Development"},
                 {"id": "Q1g", "text": "What is the executive audience's technical background?", "type": "choice", "options": ["Non-technical", "Semi-technical", "Technical"], "branch_of": "Executive Cyber Briefing"},

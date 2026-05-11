@@ -1,10 +1,7 @@
 """Scoping Agent — estimates effort, defines in/out scope, flags commercial risks."""
-import os
 from .base_agent import BaseAgent
 
-os.environ.setdefault("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
-
-SCOPING_PROMPT = """You are a SISA Information Security scoping specialist.
+SCOPING_PROMPT = """You are a professional pre-sales scoping specialist.
 Given a discovery brief and client context, produce a detailed scope estimate for a {service_name} engagement.
 
 Client: {client_name} | Industry: {industry} | Size: {size} | Region: {region}

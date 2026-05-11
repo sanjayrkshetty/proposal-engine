@@ -1,4 +1,4 @@
-# SISA Information Security
+# {{COMPANY_NAME}}
 ## Compromise Assessment
 ### Commercial Proposal
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About SISA Information Security
+## About {{COMPANY_NAME}}
 
-SISA Information Security specialises in proactive cyber threat detection for organisations that suspect or want to rule out an undetected breach. With PFI accreditation and a track record of uncovering hidden attacker presence in complex environments, SISA provides compromise assessments that go beyond automated scanning to deliver investigator-grade analysis.
+{{COMPANY_NAME}} specialises in proactive cyber threat detection for organisations that suspect or want to rule out an undetected breach. With PFI accreditation and a track record of uncovering hidden attacker presence in complex environments, {{COMPANY_NAME}} provides compromise assessments that go beyond automated scanning to deliver investigator-grade analysis.
 
 ---
 
@@ -34,7 +34,7 @@ SISA Information Security specialises in proactive cyber threat detection for or
 
 A Compromise Assessment answers the question: *"Is there an active or past attacker in your environment that you don't know about?"*
 
-**What SISA will do:**
+**What {{COMPANY_NAME}} will do:**
 - Deploy lightweight forensic agents on up to 50 endpoints for triage
 - Analyse EDR/SIEM telemetry for indicators of compromise (IOCs)
 - Identify lateral movement, persistence mechanisms, and data staging
@@ -69,7 +69,7 @@ A Compromise Assessment answers the question: *"Is there an active or past attac
 1. This proposal is valid until **{{VALID_UNTIL}}**.
 2. Scope is based on up to 50 endpoints. Additional endpoints can be added at a per-endpoint rate.
 3. Forensic agents are lightweight, read-only, and will not interfere with production operations.
-4. Findings are presented in a final report; raw forensic artefacts are retained by SISA for 30 days post-delivery, then destroyed.
+4. Findings are presented in a final report; raw forensic artefacts are retained by {{COMPANY_NAME}} for 30 days post-delivery, then destroyed.
 5. Payment: 50% advance; 50% on report delivery.
 
 ---

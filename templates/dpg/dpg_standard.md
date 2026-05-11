@@ -1,4 +1,4 @@
-# SISA Information Security
+# {{COMPANY_NAME}}
 ## Data Privacy & Governance
 ### Commercial Proposal
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About SISA Information Security
+## About {{COMPANY_NAME}}
 
-SISA's Data Privacy & Governance practice provides organisations with expert guidance on privacy compliance across DPDP Act 2023, GDPR, PDPA, and POPIA. Our DPO-as-a-Service, DPIA, and privacy audit offerings are delivered by CIPP/E certified professionals with deep experience in financial services, healthcare, and technology sectors.
+{{COMPANY_NAME}}'s Data Privacy & Governance practice provides organisations with expert guidance on privacy compliance across DPDP Act 2023, GDPR, PDPA, and POPIA. Our DPO-as-a-Service, DPIA, and privacy audit offerings are delivered by CIPP/E certified professionals with deep experience in financial services, healthcare, and technology sectors.
 
 ---
 
@@ -32,7 +32,7 @@ SISA's Data Privacy & Governance practice provides organisations with expert gui
 
 ## Scope of Services — {{SERVICE_NAME}}
 
-SISA will deliver the {{SERVICE_NAME}} engagement for {{CLIENT_NAME}} covering the full scope agreed during discovery.
+{{COMPANY_NAME}} will deliver the {{SERVICE_NAME}} engagement for {{CLIENT_NAME}} covering the full scope agreed during discovery.
 
 **Key Activities:**
 - Privacy programme assessment and gap analysis
@@ -61,9 +61,9 @@ SISA will deliver the {{SERVICE_NAME}} engagement for {{CLIENT_NAME}} covering t
 
 1. Valid until **{{VALID_UNTIL}}**.
 2. Prices exclude applicable taxes.
-3. SISA's role as DPO (for DPO-as-a-Service) is advisory and does not constitute legal counsel.
+3. {{COMPANY_NAME}}'s role as DPO (for DPO-as-a-Service) is advisory and does not constitute legal counsel.
 4. DPIA and audit scope is based on information provided during discovery. Additional processing activities discovered may require scope adjustment.
-5. All client data and documentation is handled under SISA's ISO 27001 certified procedures.
+5. All client data and documentation is handled under {{COMPANY_NAME}}'s ISO 27001 certified procedures.
 6. Payment: 50% advance; 50% on delivery of final report.
 
 ---

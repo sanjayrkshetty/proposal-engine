@@ -1,4 +1,4 @@
-# SISA Information Security
+# {{COMPANY_NAME}}
 ## Breach and Attack Simulation
 ### Commercial Proposal
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About SISA Information Security
+## About {{COMPANY_NAME}}
 
-SISA Warlabs is SISA's dedicated offensive security and threat simulation team. Our BAS capability is built on MITRE ATT&CK framework expertise, real-world threat intelligence, and years of adversarial simulation experience across financial services, healthcare, and critical infrastructure.
+Threat Intelligence Practice (Warlabs) is {{COMPANY_NAME}}'s dedicated offensive security and threat simulation team. Our BAS capability is built on MITRE ATT&CK framework expertise, real-world threat intelligence, and years of adversarial simulation experience across financial services, healthcare, and critical infrastructure.
 
 ---
 
@@ -32,9 +32,9 @@ SISA Warlabs is SISA's dedicated offensive security and threat simulation team. 
 
 ## Scope of Services — Breach and Attack Simulation
 
-SISA will execute a structured simulation of attack techniques aligned to the threat actors most relevant to {{CLIENT_NAME}}'s industry and region. The exercise validates whether your security controls detect, alert, and respond as designed.
+{{COMPANY_NAME}} will execute a structured simulation of attack techniques aligned to the threat actors most relevant to {{CLIENT_NAME}}'s industry and region. The exercise validates whether your security controls detect, alert, and respond as designed.
 
-**What SISA will do:**
+**What {{COMPANY_NAME}} will do:**
 - Design a simulation scenario based on your threat landscape
 - Execute MITRE ATT&CK-mapped attack techniques across your defensive stack
 - Validate EDR, SIEM, WAF, DLP, and email gateway detection capabilities
@@ -68,8 +68,8 @@ SISA will execute a structured simulation of attack techniques aligned to the th
 
 1. This proposal is valid until **{{VALID_UNTIL}}**.
 2. The BAS engagement requires written authorisation and rules of engagement (RoE) signed prior to commencement. No simulation activities begin without signed RoE.
-3. SISA will conduct all simulation activities within agreed network boundaries. Out-of-scope systems will not be targeted.
-4. Production environment impact is minimised; SISA will notify {{CLIENT_NAME}} immediately if any unintended impact is detected.
+3. {{COMPANY_NAME}} will conduct all simulation activities within agreed network boundaries. Out-of-scope systems will not be targeted.
+4. Production environment impact is minimised; {{COMPANY_NAME}} will notify {{CLIENT_NAME}} immediately if any unintended impact is detected.
 5. Payment: 50% advance; 50% on delivery of final report.
 
 ---

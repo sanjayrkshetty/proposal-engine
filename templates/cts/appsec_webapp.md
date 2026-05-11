@@ -1,4 +1,4 @@
-# SISA Information Security
+# {{COMPANY_NAME}}
 ## Application Security Assessment
 ### Commercial Proposal
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About SISA Information Security
+## About {{COMPANY_NAME}}
 
-SISA's Application Security team specialises in manual web application penetration testing and source code security review. Following OWASP Testing Guide v4.2, OWASP Top 10 2021, and OWASP ASVS, SISA delivers findings that automated scanners consistently miss — including business logic vulnerabilities, authentication bypass, and API authorisation flaws.
+{{COMPANY_NAME}}'s Application Security team specialises in manual web application penetration testing and source code security review. Following OWASP Testing Guide v4.2, OWASP Top 10 2021, and OWASP ASVS, {{COMPANY_NAME}} delivers findings that automated scanners consistently miss — including business logic vulnerabilities, authentication bypass, and API authorisation flaws.
 
 ---
 

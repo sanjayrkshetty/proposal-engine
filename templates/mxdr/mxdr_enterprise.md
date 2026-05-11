@@ -1,4 +1,4 @@
-# SISA Information Security
+# {{COMPANY_NAME}}
 ## Managed Extended Detection & Response — Enterprise
 ### Commercial Proposal
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About SISA Information Security
+## About {{COMPANY_NAME}}
 
-SISA MXDR Enterprise delivers dedicated analyst coverage across endpoint, cloud, identity, and OT/ICS environments. Purpose-built for large enterprises requiring SLA accountability, custom detection logic, and direct integration with existing security tooling.
+{{COMPANY_NAME}} MXDR Enterprise delivers dedicated analyst coverage across endpoint, cloud, identity, and OT/ICS environments. Purpose-built for large enterprises requiring SLA accountability, custom detection logic, and direct integration with existing security tooling.
 
 ---
 

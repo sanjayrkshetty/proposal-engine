@@ -1,284 +1,209 @@
-#!/usr/bin/env python3
-"""Pipeline Report — scans outputs/ and generates Markdown or Excel report."""
-import sys
+"""Pipeline Report — scan outputs/ and generate markdown or Excel summary."""
 import os
+import sys
 import json
-import re
 from pathlib import Path
 from datetime import datetime
 
-import click
-from rich.console import Console
-from rich.table import Table
+try:
+    from rich.console import Console
+    from rich.table import Table
+    RICH = True
+except ImportError:
+    RICH = False
 
-console = Console()
+try:
+    import openpyxl
+    from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+    EXCEL = True
+except ImportError:
+    EXCEL = False
 
-# Excel dark theme colours
-EXCEL_BG = "0D1117"
-EXCEL_HEADER_BG = "1C2333"
-EXCEL_TEXT = "C9D1D9"
-EXCEL_ACCENT = "58A6FF"
+COMPANY_NAME = os.environ.get("COMPANY_NAME", "Proposal Engine")
 
-OUTPUTS_DIR = Path("outputs")
+DARK_BG     = "FF0D1117"
+HEADER_BG   = "FF1C2333"
+ROW_ALT_BG  = "FF161B22"
+TEXT_COLOR  = "FFC9D1D9"
+ACCENT      = "FF58A6FF"
+GREEN       = "FF3FB950"
+YELLOW      = "FFD29922"
+RED         = "FFF85149"
 
 
-def scan_outputs(bu_filter: str = None, region_filter: str = None) -> list:
-    """Scan outputs/ directory and extract proposal metadata."""
+def scan_outputs(output_dir: str = "outputs") -> list:
+    root = Path(output_dir)
+    if not root.exists():
+        return []
+
     proposals = []
-    if not OUTPUTS_DIR.exists():
-        return proposals
-
-    for run_dir in sorted(OUTPUTS_DIR.iterdir()):
+    for run_dir in sorted(root.iterdir()):
         if not run_dir.is_dir():
             continue
-
-        # Parse directory name: YYYY-MM-DD_ClientName_BU_ServiceCode
-        parts = run_dir.name.split("_")
-        if len(parts) < 3:
+        meta_path = run_dir / "proposal_meta.json"
+        if not meta_path.exists():
             continue
-
-        date_str = parts[0]
-        bu_from_dir = parts[2] if len(parts) > 2 else "UNKNOWN"
-        service_from_dir = parts[3] if len(parts) > 3 else "UNKNOWN"
-
-        # Apply filters
-        if bu_filter and bu_from_dir.upper() != bu_filter.upper():
-            continue
-
-        # Load metadata from proposal_meta.json if exists
-        meta_file = run_dir / "proposal_meta.json"
-        pricing_file = run_dir / "pricing_table.json"
-
-        proposal = {
-            "run_id": run_dir.name,
-            "date": date_str,
-            "client": "Unknown",
-            "bu": bu_from_dir,
-            "service": service_from_dir,
-            "proposal_number": "—",
-            "region": "Unknown",
-            "tier": "—",
-            "acv_inr": 0,
-            "acv_display": "—",
-            "currency": "INR",
-        }
-
-        if meta_file.exists():
-            try:
-                meta = json.loads(meta_file.read_text(encoding="utf-8"))
-                proposal["client"] = meta.get("client") or proposal["client"]
-                proposal["bu"] = meta.get("service", service_from_dir).split("-")[0] if meta.get("service") else bu_from_dir
-                proposal["service"] = meta.get("service") or service_from_dir
-                proposal["proposal_number"] = meta.get("proposal_number") or "—"
-                proposal["region"] = meta.get("region") or "Unknown"
-                proposal["tier"] = meta.get("tier") or "—"
-                proposal["bu"] = _infer_bu(proposal["service"])
-            except (json.JSONDecodeError, Exception):
-                pass
-
-        if pricing_file.exists():
-            try:
-                pricing = json.loads(pricing_file.read_text(encoding="utf-8"))
-                acv = pricing.get("total_inr", 0)
-                currency = pricing.get("currency", "INR")
-                total_display = pricing.get("total_display", 0)
-                sym = {"INR": "₹", "USD": "$", "SGD": "S$"}.get(currency, "")
-                proposal["acv_inr"] = acv
-                proposal["acv_display"] = f"{sym}{total_display:,.0f} {currency}"
-                proposal["currency"] = currency
-            except (json.JSONDecodeError, Exception):
-                pass
-
-        # Apply region filter
-        if region_filter and proposal["region"].upper() != region_filter.upper():
-            continue
-
-        proposals.append(proposal)
+        with open(meta_path, encoding="utf-8") as f:
+            meta = json.load(f)
+        meta["run_dir"] = str(run_dir)
+        meta["run_id"] = run_dir.name
+        proposals.append(meta)
 
     return proposals
 
 
-def _infer_bu(service_code: str) -> str:
-    if not service_code:
-        return "UNKNOWN"
-    s = service_code.upper()
-    if s.startswith("DFIR") or s in ("IFI", "CA", "BAS"):
-        return "DFIR"
-    elif s.startswith("MXDR"):
-        return "MXDR"
-    elif s.startswith("DPG"):
-        return "DPG"
-    elif s.startswith("CTS"):
-        return "CTS"
-    elif s.startswith("INST"):
-        return "INSTITUTE"
-    elif s.startswith("QTM"):
-        return "QUANTUM"
-    return "UNKNOWN"
-
-
-def render_markdown(proposals: list):
-    """Render pipeline report as Rich Markdown table to console."""
+def render_markdown_report(proposals: list) -> str:
     if not proposals:
-        console.print("[yellow]No proposals found in outputs/ directory.[/yellow]")
+        return "# Proposal Pipeline Report\n\nNo proposals found in outputs/.\n"
+
+    lines = [
+        f"# {COMPANY_NAME} — Proposal Pipeline Report",
+        f"*Generated: {datetime.now().strftime('%d %B %Y %H:%M')}*",
+        f"*Total proposals: {len(proposals)}*",
+        "",
+        "| Proposal No | Client | Service | Tier | Region | Date |",
+        "|-------------|--------|---------|------|--------|------|",
+    ]
+    for p in proposals:
+        lines.append(
+            f"| {p.get('proposal_number', '-')} "
+            f"| {p.get('client', '-')} "
+            f"| {p.get('service', '-')} "
+            f"| {p.get('tier', '-')} "
+            f"| {p.get('region', '-')} "
+            f"| {p.get('run_id', '-')[:10]} |"
+        )
+    return "\n".join(lines)
+
+
+def render_rich_table(proposals: list):
+    if not RICH:
+        print(render_markdown_report(proposals))
         return
 
-    table = Table(title="SISA Proposal Pipeline Report", show_lines=True)
-    table.add_column("Date", style="dim")
-    table.add_column("Client", style="bold cyan")
-    table.add_column("BU", style="blue")
+    console = Console()
+    table = Table(title=f"{COMPANY_NAME} Proposal Pipeline Report", show_lines=True)
+    table.add_column("Proposal No", style="bold cyan")
+    table.add_column("Client", style="white")
     table.add_column("Service", style="yellow")
-    table.add_column("Proposal No.", style="green")
+    table.add_column("Tier", style="green")
     table.add_column("Region", style="magenta")
-    table.add_column("Tier", style="white")
-    table.add_column("ACV", style="bold green")
+    table.add_column("Date", style="dim")
 
     for p in proposals:
         table.add_row(
-            p["date"],
-            p["client"],
-            p["bu"],
-            p["service"],
-            p["proposal_number"],
-            p["region"],
-            p["tier"],
-            p["acv_display"],
+            p.get("proposal_number", "-"),
+            p.get("client", "-"),
+            p.get("service", "-"),
+            p.get("tier", "-"),
+            p.get("region", "-"),
+            p.get("run_id", "-")[:10],
         )
 
     console.print(table)
-    console.print(f"\n[dim]Total proposals: {len(proposals)}[/dim]")
-
-    # Also print raw markdown table
-    console.print("\n[bold]Markdown Table:[/bold]")
-    headers = ["Date", "Client", "BU", "Service", "Proposal No.", "Region", "Tier", "ACV"]
-    header_line = "| " + " | ".join(headers) + " |"
-    sep_line = "|" + "|".join(["---" for _ in headers]) + "|"
-    print(header_line)
-    print(sep_line)
-    for p in proposals:
-        row = [p["date"], p["client"], p["bu"], p["service"],
-               p["proposal_number"], p["region"], p["tier"], p["acv_display"]]
-        print("| " + " | ".join(row) + " |")
 
 
-def render_excel(proposals: list, output_path: str = "reports/pipeline_report.xlsx"):
-    """Render pipeline report as Excel file with dark theme."""
-    try:
-        import openpyxl
-        from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
-        from openpyxl.utils import get_column_letter
-    except ImportError:
-        console.print("[red]openpyxl not installed. Run: pip install openpyxl[/red]")
+def write_excel_report(proposals: list, output_path: str = "reports/pipeline_report.xlsx"):
+    if not EXCEL:
+        print("openpyxl not installed — skipping Excel export")
         return
 
+    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     wb = openpyxl.Workbook()
-    wb.remove(wb.active)  # Remove default sheet
+    ws = wb.active
+    ws.title = "All Proposals"
 
-    # Style helpers
-    def make_header_font():
-        return Font(bold=True, color=EXCEL_ACCENT, size=11)
+    def make_fill(hex_color):
+        return PatternFill(fill_type="solid", fgColor=hex_color)
 
-    def make_body_font():
-        return Font(color=EXCEL_TEXT, size=10)
-
-    def make_header_fill():
-        return PatternFill(start_color=EXCEL_HEADER_BG, end_color=EXCEL_HEADER_BG, fill_type="solid")
-
-    def make_body_fill():
-        return PatternFill(start_color=EXCEL_BG, end_color=EXCEL_BG, fill_type="solid")
+    def make_font(bold=False, color=TEXT_COLOR, size=11):
+        return Font(bold=bold, color=color, size=size, name="Calibri")
 
     def make_border():
-        side = Side(style="thin", color="30363D")
+        side = Side(style="thin", color="FF30363D")
         return Border(left=side, right=side, top=side, bottom=side)
 
-    COLUMNS = ["Date", "Client", "BU", "Service", "Proposal No.", "Region", "Tier", "ACV"]
+    headers = ["Proposal No", "Client", "Service", "Tier", "Region", "Date"]
+    ws.append(headers)
 
-    def write_sheet(ws, data, title):
-        # Tab colour
-        ws.sheet_properties.tabColor = EXCEL_ACCENT
+    for cell in ws[1]:
+        cell.fill = make_fill(HEADER_BG)
+        cell.font = make_font(bold=True, color=ACCENT, size=12)
+        cell.alignment = Alignment(horizontal="center", vertical="center")
+        cell.border = make_border()
 
-        # Title row
-        ws.append([title])
-        title_cell = ws.cell(1, 1)
-        title_cell.font = Font(bold=True, color=EXCEL_ACCENT, size=14)
-        title_cell.fill = make_body_fill()
-        ws.merge_cells(f"A1:{get_column_letter(len(COLUMNS))}1")
-        ws.row_dimensions[1].height = 28
+    ws.row_dimensions[1].height = 24
 
-        # Header row
-        ws.append(COLUMNS)
-        for col_num, _ in enumerate(COLUMNS, 1):
-            cell = ws.cell(2, col_num)
-            cell.font = make_header_font()
-            cell.fill = make_header_fill()
-            cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+    for i, p in enumerate(proposals, start=2):
+        row = [
+            p.get("proposal_number", "-"),
+            p.get("client", "-"),
+            p.get("service", "-"),
+            p.get("tier", "-"),
+            p.get("region", "-"),
+            p.get("run_id", "-")[:10],
+        ]
+        ws.append(row)
+        bg = DARK_BG if i % 2 == 0 else ROW_ALT_BG
+        for cell in ws[i]:
+            cell.fill = make_fill(bg)
+            cell.font = make_font()
+            cell.alignment = Alignment(vertical="center")
             cell.border = make_border()
-        ws.row_dimensions[2].height = 22
 
-        # Data rows
-        for row_idx, p in enumerate(data, 3):
-            row_data = [p["date"], p["client"], p["bu"], p["service"],
-                        p["proposal_number"], p["region"], p["tier"], p["acv_display"]]
-            ws.append(row_data)
-            for col_num in range(1, len(COLUMNS) + 1):
-                cell = ws.cell(row_idx, col_num)
-                cell.font = make_body_font()
-                cell.fill = make_body_fill()
-                cell.alignment = Alignment(vertical="center")
-                cell.border = make_border()
-            ws.row_dimensions[row_idx].height = 18
+    ws.sheet_view.showGridLines = False
+    ws.column_dimensions["A"].width = 26
+    ws.column_dimensions["B"].width = 28
+    ws.column_dimensions["C"].width = 22
+    ws.column_dimensions["D"].width = 14
+    ws.column_dimensions["E"].width = 16
+    ws.column_dimensions["F"].width = 16
 
-        # Column widths
-        col_widths = [12, 28, 10, 20, 20, 14, 12, 18]
-        for col_num, width in enumerate(col_widths, 1):
-            ws.column_dimensions[get_column_letter(col_num)].width = width
+    bus = sorted(set(p.get("service", "")[:p.get("service", "").find("-")] for p in proposals if p.get("service")))
+    for bu in bus:
+        bu_proposals = [p for p in proposals if p.get("service", "").startswith(bu)]
+        if not bu_proposals:
+            continue
+        ws_bu = wb.create_sheet(title=bu[:31])
+        ws_bu.append(headers)
+        for cell in ws_bu[1]:
+            cell.fill = make_fill(HEADER_BG)
+            cell.font = make_font(bold=True, color=ACCENT)
+            cell.alignment = Alignment(horizontal="center")
+        for p in bu_proposals:
+            ws_bu.append([
+                p.get("proposal_number", "-"), p.get("client", "-"),
+                p.get("service", "-"), p.get("tier", "-"),
+                p.get("region", "-"), p.get("run_id", "-")[:10],
+            ])
 
-    # Summary sheet
-    ws_summary = wb.create_sheet("Summary")
-    write_sheet(ws_summary, proposals, "SISA Proposal Pipeline — All BUs")
-
-    # Per-BU sheets
-    bu_groups: dict = {}
-    for p in proposals:
-        bu = p["bu"]
-        bu_groups.setdefault(bu, []).append(p)
-
-    for bu, bu_proposals in sorted(bu_groups.items()):
-        ws_bu = wb.create_sheet(bu[:30])  # Sheet name max 31 chars
-        write_sheet(ws_bu, bu_proposals, f"SISA Pipeline — {bu}")
-
-    # Ensure reports/ directory exists
-    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     wb.save(output_path)
-    console.print(f"[green]✓ Excel report saved:[/green] {output_path}")
+    print(f"Excel report saved: {output_path}")
 
 
-@click.command()
-@click.option("--format", "fmt", default="markdown",
-              type=click.Choice(["markdown", "excel"], case_sensitive=False),
-              help="Output format")
-@click.option("--bu", default=None, help="Filter by BU (DFIR, MXDR, DPG, CTS, INSTITUTE, QUANTUM)")
-@click.option("--region", default=None, help="Filter by region")
-@click.option("--output", "output_path", default="reports/pipeline_report.xlsx",
-              help="Output path for Excel report")
-def main(fmt, bu, region, output_path):
-    """SISA Pipeline Report — scan outputs and generate report."""
-    console.print(f"[bold cyan]SISA Pipeline Report[/bold cyan] — format: {fmt}")
-    if bu:
-        console.print(f"  Filter: BU = {bu}")
-    if region:
-        console.print(f"  Filter: Region = {region}")
+def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="Proposal Pipeline Report")
+    parser.add_argument("--format", choices=["table", "markdown", "excel"], default="table")
+    parser.add_argument("--output", default="reports/pipeline_report.xlsx")
+    parser.add_argument("--output-dir", default="outputs")
+    args = parser.parse_args()
 
-    proposals = scan_outputs(bu_filter=bu, region_filter=region)
+    proposals = scan_outputs(args.output_dir)
 
-    if fmt == "markdown":
-        render_markdown(proposals)
-    elif fmt == "excel":
-        render_excel(proposals, output_path)
+    if sys.platform == "win32":
+        import io
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+
+    print(f"{COMPANY_NAME} Pipeline Report — format: {args.format}")
+
+    if args.format == "table":
+        render_rich_table(proposals)
+    elif args.format == "markdown":
+        print(render_markdown_report(proposals))
+    elif args.format == "excel":
+        write_excel_report(proposals, args.output)
 
 
 if __name__ == "__main__":
-    # Ensure we run from repo root
-    repo_root = Path(__file__).parent.parent
-    os.chdir(repo_root)
     main()
