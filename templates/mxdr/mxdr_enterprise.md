@@ -1,4 +1,4 @@
-# Proposal Engine
+# {{COMPANY_NAME}}
 ## Managed Extended Detection & Response — Enterprise
 ### Commercial Proposal
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About Proposal Engine
+## About {{COMPANY_NAME}}
 
-Proposal Engine MXDR Enterprise delivers dedicated analyst coverage across endpoint, cloud, identity, and OT/ICS environments. Purpose-built for large enterprises requiring SLA accountability, custom detection logic, and direct integration with existing security tooling.
+{{COMPANY_NAME}} MXDR Enterprise delivers dedicated analyst coverage across endpoint, cloud, identity, and OT/ICS environments. Purpose-built for large enterprises requiring SLA accountability, custom detection logic, and direct integration with existing security tooling.
 
 ---
 

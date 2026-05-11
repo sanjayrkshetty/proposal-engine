@@ -1,4 +1,4 @@
-# Proposal Engine
+# {{COMPANY_NAME}}
 ## Managed Extended Detection & Response — Essential
 ### Commercial Proposal
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About Proposal Engine
+## About {{COMPANY_NAME}}
 
-Proposal Engine operates a 24/7 Security Operations Centre (SOC) from Bengaluru, staffed by certified analysts and threat intelligence specialists. Proposal Engine MXDR combines endpoint, network, cloud, and identity telemetry into a unified detection and response capability, backed by Our forensic expertise for high-confidence incident escalation.
+{{COMPANY_NAME}} operates a 24/7 Security Operations Centre (SOC) from Bengaluru, staffed by certified analysts and threat intelligence specialists. {{COMPANY_NAME}} MXDR combines endpoint, network, cloud, and identity telemetry into a unified detection and response capability, backed by {{COMPANY_NAME}}'s forensic expertise for high-confidence incident escalation.
 
 ---
 

@@ -1,4 +1,4 @@
-# Proposal Engine — Warlabs
+# {{COMPANY_NAME}} — Warlabs
 ## Red Team Exercise
 ### Commercial Proposal — Confidential
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About Threat Intelligence Practice
+## About Threat Intelligence Practice (Warlabs)
 
-Threat Intelligence Practice is Our elite offensive security team. Composed of CREST-certified penetration testers, former red teamers, and threat intelligence analysts, Warlabs conducts full-scope adversarial simulations that mirror the tactics of nation-state actors, organised cybercriminal groups, and insider threats.
+Threat Intelligence Practice (Warlabs) is {{COMPANY_NAME}}'s elite offensive security team. Composed of CREST-certified penetration testers, former red teamers, and threat intelligence analysts, Warlabs conducts full-scope adversarial simulations that mirror the tactics of nation-state actors, organised cybercriminal groups, and insider threats.
 
 ---
 

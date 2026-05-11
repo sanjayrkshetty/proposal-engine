@@ -13,10 +13,10 @@ services:
     template: retainer_essential.md
     questionnaire_module: bu.dfir.questionnaire
     codebook_path: bu/dfir/codebook.yaml
-    proposal_number_format: "Proposal Engine-{YEAR}-{REGION}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Initial Response: 4h | Containment: 24h | Report: 5 BD"
-    description: Pre-contracted priority access to Proposal Engine forensic experts. Essential tier covers standard IR events with guaranteed 4-hour response SLA.
+    description: Pre-contracted priority access to certified forensic experts. Essential tier covers standard IR events with guaranteed 4-hour response SLA.
     key_components:
       - Pre-contracted expert access (up to 80 hours/year)
       - 4-hour priority incident response SLA
@@ -45,7 +45,7 @@ services:
     template: retainer_enterprise.md
     questionnaire_module: bu.dfir.questionnaire
     codebook_path: bu/dfir/codebook.yaml
-    proposal_number_format: "Proposal Engine-{YEAR}-{REGION}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Initial Response: 2h | Containment: 12h | Report: 3 BD"
     description: Enterprise-grade DFIR retainer with dedicated team, 2-hour response SLA, and unlimited IR events (fair use).
@@ -80,7 +80,7 @@ services:
     template: retainer_elite.md
     questionnaire_module: bu.dfir.questionnaire
     codebook_path: bu/dfir/codebook.yaml
-    proposal_number_format: "Proposal Engine-{YEAR}-{REGION}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Initial Response: 1h | Containment: 6h | Report: 2 BD"
     description: Elite DFIR retainer with 1-hour response SLA, on-call senior forensic director, and full PFI coverage.
@@ -116,7 +116,7 @@ services:
     template: ifi.md
     questionnaire_module: bu.dfir.questionnaire
     codebook_path: bu/dfir/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 21
     sla_tier: "Report: 5-10 BD post evidence collection"
     description: Thorough investigation of complex or high-impact internal incidents including insider threats, breaches, and ransomware.
@@ -149,7 +149,7 @@ services:
     template: ca.md
     questionnaire_module: bu.dfir.questionnaire
     codebook_path: bu/dfir/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 21
     sla_tier: "Report: 3-5 BD post assessment"
     description: Proactive identification of hidden breaches, lateral movement, and undetected threat actor presence.
@@ -181,7 +181,7 @@ services:
     template: bas.md
     questionnaire_module: bu.dfir.questionnaire
     codebook_path: bu/dfir/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 21
     sla_tier: "Report: 5 BD post simulation"
     description: MITRE ATT&CK-mapped simulated attacks to validate defenses and assess security control maturity.
@@ -217,7 +217,7 @@ services:
     template: mxdr_essential.md
     questionnaire_module: bu.mxdr.questionnaire
     codebook_path: bu/mxdr/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Alert Triage: 30min | Investigation: 4h | Escalation: 1h"
     description: Managed detection and response covering endpoint, network, and cloud telemetry with 24/7 SOC coverage. Essential tier for SME and mid-market organisations.
@@ -250,7 +250,7 @@ services:
     template: mxdr_enterprise.md
     questionnaire_module: bu.mxdr.questionnaire
     codebook_path: bu/mxdr/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Alert Triage: 15min | Investigation: 2h | Escalation: 30min"
     description: Enterprise MXDR with dedicated analyst pair, full XDR capability across endpoint, cloud, identity, and OT/ICS environments.
@@ -291,10 +291,10 @@ services:
     template: dpg_standard.md
     questionnaire_module: bu.dpg.questionnaire
     codebook_path: bu/dpg/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Advisory Response: 2 BD | Breach Notification: 4h"
-    description: Outsourced Data Protection Officer service. Proposal Engine provides a qualified DPO to fulfil regulatory obligations under DPDP Act 2023, GDPR, and other privacy frameworks.
+    description: Outsourced Data Protection Officer service. A qualified DPO is provided to fulfil regulatory obligations under DPDP Act 2023, GDPR, and other privacy frameworks.
     key_components:
       - Qualified DPO (named resource, CIPP/E certified)
       - Privacy policy review and development
@@ -325,7 +325,7 @@ services:
     template: dpg_standard.md
     questionnaire_module: bu.dpg.questionnaire
     codebook_path: bu/dpg/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 21
     sla_tier: "Report: 5 BD post data collection"
     description: Structured assessment of data processing activities to identify and mitigate privacy risks for high-risk processing operations.
@@ -356,7 +356,7 @@ services:
     template: dpg_standard.md
     questionnaire_module: bu.dpg.questionnaire
     codebook_path: bu/dpg/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 21
     sla_tier: "Report: 7 BD post audit"
     description: Comprehensive audit of an organisation's privacy program against DPDP Act 2023, GDPR, or PDPA requirements.
@@ -392,7 +392,7 @@ services:
     template: paysec_pci.md
     questionnaire_module: bu.cts.questionnaire
     codebook_path: bu/cts/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Report: 10 BD post assessment"
     description: QSA-led PCI DSS v4.0 assessment covering cardholder data environment scoping, gap analysis, and certification pathway.
@@ -424,10 +424,10 @@ services:
     template: paysec_pci.md
     questionnaire_module: bu.cts.questionnaire
     codebook_path: bu/cts/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Report: 10 BD post assessment"
-    description: Proposal Engine QSA-led PCI Software Security Framework (SSF) assessment covering Secure Software Standard and Secure SLC Standard.
+    description: QSA-led PCI Software Security Framework (SSF) assessment covering Secure Software Standard and Secure SLC Standard.
     key_components:
       - Secure Software Standard assessment
       - Secure SLC Standard assessment
@@ -452,10 +452,10 @@ services:
     template: warlabs_redteam.md
     questionnaire_module: bu.cts.questionnaire
     codebook_path: bu/cts/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Report: 10 BD post exercise"
-    description: Full-scope adversarial simulation by Threat Intelligence Practice. Red team exercises simulate nation-state and organised cybercriminal TTPs against crown jewels.
+    description: Full-scope adversarial simulation by the Threat Intelligence Practice. Red team exercises simulate nation-state and organised cybercriminal TTPs against crown jewels.
     key_components:
       - Threat intelligence-led attack scenario design
       - External and internal attack simulation
@@ -486,7 +486,7 @@ services:
     template: netsec_pentest.md
     questionnaire_module: bu.cts.questionnaire
     codebook_path: bu/cts/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 21
     sla_tier: "Report: 5 BD post testing"
     description: External and internal network penetration testing following PTES and OWASP testing methodology. Identifies exploitable vulnerabilities before attackers do.
@@ -518,7 +518,7 @@ services:
     template: netsec_pentest.md
     questionnaire_module: bu.cts.questionnaire
     codebook_path: bu/cts/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 21
     sla_tier: "Report: 3 BD post scan"
     description: Authenticated vulnerability scanning and risk-scored findings across network infrastructure, endpoints, and cloud assets.
@@ -547,7 +547,7 @@ services:
     template: appsec_webapp.md
     questionnaire_module: bu.cts.questionnaire
     codebook_path: bu/cts/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 21
     sla_tier: "Report: 5 BD post testing"
     description: Manual web application penetration testing following OWASP Testing Guide v4.2 and OWASP Top 10 2021. Covers authentication, authorisation, business logic, and API security.
@@ -579,7 +579,7 @@ services:
     template: appsec_webapp.md
     questionnaire_module: bu.cts.questionnaire
     codebook_path: bu/cts/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 21
     sla_tier: "Report: 5 BD post code review"
     description: Manual and automated source code security review covering OWASP Top 10, CWE/SANS Top 25, and language-specific vulnerabilities.
@@ -602,7 +602,7 @@ services:
       - ISO/IEC 27001 (A.14.2)
 
   # ============================================================
-  # Institute — Training Institute (Training & Certification)
+  # Institute — Training Institute (Certification & Development)
   # ============================================================
 
   INST-AWARENESS:
@@ -614,7 +614,7 @@ services:
     template: training_proposal.md
     questionnaire_module: bu.institute.questionnaire
     codebook_path: bu/institute/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 21
     sla_tier: "Delivery: As agreed | Post-training report: 2 BD"
     description: Instructor-led security awareness training tailored to client industry and threat landscape. Includes phishing simulation and culture assessment.
@@ -646,13 +646,13 @@ services:
     template: training_proposal.md
     questionnaire_module: bu.institute.questionnaire
     codebook_path: bu/institute/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Program delivery: As agreed"
-    description: Training Institute's structured DFIR certification program. Prepares analysts for GCFA, GCIH, and Proposal Engine-issued DFIR certifications.
+    description: The Institute's structured DFIR certification program. Prepares analysts for GCFA, GCIH, and vendor-issued DFIR certifications.
     key_components:
       - 40-hour structured curriculum
-      - Hands-on lab environment (Proposal Engine virtual range)
+      - Hands-on lab environment (virtual cyber range)
       - Incident scenario simulations
       - Certification examination
       - Post-program mentoring (3 months)
@@ -661,7 +661,7 @@ services:
     deliverables:
       - Training materials (lifetime access)
       - Lab environment access
-      - Proposal Engine DFIR certification (on passing)
+      - DFIR certification (on passing)
       - Mentoring sessions
     regulatory_fit:
       - ISO/IEC 27001 (competency requirements)
@@ -676,7 +676,7 @@ services:
     template: training_proposal.md
     questionnaire_module: bu.institute.questionnaire
     codebook_path: bu/institute/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Program delivery: As agreed"
     description: Structured SOC Analyst development program covering L1/L2/L3 analyst competencies. Tailored for organisations building or upskilling internal SOC teams.
@@ -684,14 +684,14 @@ services:
       - L1/L2/L3 analyst curriculum tracks
       - SIEM, EDR, and threat intelligence tooling labs
       - Real-world case study analysis
-      - Certification examination (Proposal Engine SOC Analyst)
+      - Certification examination (SOC Analyst)
       - 6-month post-program support
     engagement_type: training_program
     typical_duration: 6-8 weeks
     deliverables:
       - Training materials per track
       - Lab environment access (6 months)
-      - Proposal Engine SOC Analyst certification
+      - SOC Analyst certification
       - Competency assessment reports
     regulatory_fit:
       - ISO/IEC 27001 (A.7 — HR security)
@@ -710,7 +710,7 @@ services:
     template: quantum_readiness.md
     questionnaire_module: bu.quantum.questionnaire
     codebook_path: bu/quantum/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Report: 10 BD post assessment"
     description: Comprehensive assessment of an organisation's cryptographic landscape against post-quantum threats. Identifies quantum-vulnerable algorithms and provides PQC migration roadmap.
@@ -744,7 +744,7 @@ services:
     template: quantum_readiness.md
     questionnaire_module: bu.quantum.questionnaire
     codebook_path: bu/quantum/codebook.yaml
-    proposal_number_format: "Proposal Engine-{BU}-{YEAR}-{SEQ:04d}"
+    proposal_number_format: "PROP-{BU}-{YEAR}-{SEQ:04d}"
     default_validity_days: 30
     sla_tier: "Advisory response: 2 BD"
     description: Ongoing advisory engagement supporting PQC algorithm selection, implementation planning, and vendor evaluation for post-quantum migration.

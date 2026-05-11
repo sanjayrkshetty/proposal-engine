@@ -1,1 +1,1 @@
-"""Proposal Engine Business Unit modules."""
+"""Proposal Engine — Business Unit modules."""

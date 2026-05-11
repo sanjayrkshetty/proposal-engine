@@ -1,4 +1,4 @@
-# Proposal Engine
+# {{COMPANY_NAME}}
 ## Quantum Security Advisory
 ### Commercial Proposal
 
@@ -18,9 +18,9 @@
 
 ---
 
-## About Proposal Engine Quantum Security Practice
+## About {{COMPANY_NAME}} Quantum Security Practice
 
-Our Quantum Security Practice advises organisations on the transition from classical to post-quantum cryptography. As quantum computing advances toward cryptographic relevance, organisations must act now to inventory their cryptographic assets, assess migration complexity, and begin the transition to NIST-standardised post-quantum algorithms. Our quantum advisors hold expertise in NIST PQC standards (FIPS 203/204/205), NSA CNSA 2.0, and hybrid classical-quantum architectures.
+{{COMPANY_NAME}}'s Quantum Security Practice advises organisations on the transition from classical to post-quantum cryptography. As quantum computing advances toward cryptographic relevance, organisations must act now to inventory their cryptographic assets, assess migration complexity, and begin the transition to NIST-standardised post-quantum algorithms. {{COMPANY_NAME}}'s quantum advisors hold expertise in NIST PQC standards (FIPS 203/204/205), NSA CNSA 2.0, and hybrid classical-quantum architectures.
 
 ---
 
@@ -32,7 +32,7 @@ Our Quantum Security Practice advises organisations on the transition from class
 
 ## Scope of Services — {{SERVICE_NAME}}
 
-**What Proposal Engine will do:**
+**What {{COMPANY_NAME}} will do:**
 - Conduct a comprehensive cryptographic inventory across PKI, TLS, VPN, and application layer
 - Identify quantum-vulnerable algorithms (RSA, ECC, Diffie-Hellman, DSA)
 - Assess migration complexity and dependency mapping
@@ -67,9 +67,9 @@ Our Quantum Security Practice advises organisations on the transition from class
 
 1. Valid until **{{VALID_UNTIL}}**.
 2. Scope includes cryptographic assets within the agreed system boundaries. Cloud-hosted or third-party managed systems require additional access agreements.
-3. Our quantum advisory is based on current NIST PQC standards and NSA CNSA 2.0 guidance. Standards are evolving; Proposal Engine will flag material changes during the engagement.
-4. Proposal Engine does not implement PQC algorithms as part of this engagement — implementation support is available as a separate advisory engagement.
-5. All deliverables are treated as confidential and subject to Our NDA terms.
+3. {{COMPANY_NAME}}'s quantum advisory is based on current NIST PQC standards and NSA CNSA 2.0 guidance. Standards are evolving; {{COMPANY_NAME}} will flag material changes during the engagement.
+4. {{COMPANY_NAME}} does not implement PQC algorithms as part of this engagement — implementation support is available as a separate advisory engagement.
+5. All deliverables are treated as confidential and subject to {{COMPANY_NAME}}'s NDA terms.
 6. Payment: 50% advance; 50% on final report delivery.
 
 ---

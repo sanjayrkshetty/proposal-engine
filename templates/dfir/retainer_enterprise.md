@@ -1,4 +1,4 @@
-# Proposal Engine
+# {{COMPANY_NAME}}
 ## DFIR Retainer — Enterprise Tier
 ### Commercial Proposal
 
@@ -21,7 +21,7 @@
 | **Tier** | Enterprise |
 | **SLA Commitment** | {{SLA_TIER}} |
 | **Proposal No.** | {{PROPOSAL_NO}} |
-| **Prepared by** | Proposal Engine |
+| **Prepared by** | {{COMPANY_NAME}} |
 
 ---
 
@@ -31,13 +31,13 @@
 
 ---
 
-## About Proposal Engine
+## About {{COMPANY_NAME}}
 
-Proposal Engine is a global payment and cybersecurity company with over a decade of expertise protecting organisations across financial services, healthcare, retail, and critical infrastructure. Headquartered in Bengaluru, India, Proposal Engine operates across 40+ countries with a team of 200+ certified security professionals.
+{{COMPANY_NAME}} is a global payment and cybersecurity company with over a decade of expertise protecting organisations across financial services, healthcare, retail, and critical infrastructure. Headquartered in Bengaluru, India, {{COMPANY_NAME}} operates across 40+ countries with a team of 200+ certified security professionals.
 
-Proposal Engine holds dual accreditation as a **PCI Forensic Investigator (PFI)** and **Qualified Security Assessor (QSA)** from the PCI Security Standards Council — making Proposal Engine the only company in Asia-Pacific with both designations. Our forensic team holds GCFA, GCIH, CREST, and CISSP certifications.
+{{COMPANY_NAME}} holds dual accreditation as a **PCI Forensic Investigator (PFI)** and **Qualified Security Assessor (QSA)** from the PCI Security Standards Council — making {{COMPANY_NAME}} the only company in Asia-Pacific with both designations. Our forensic team holds GCFA, GCIH, CREST, and CISSP certifications.
 
-Proposal Engine has responded to 1,000+ cybersecurity incidents globally, including ransomware, advanced persistent threats, payment card breaches, and nation-state attacks.
+Our practitioners have responded to thousands of cybersecurity incidents globally, including ransomware, advanced persistent threats, and nation-state attacks.
 
 ---
 
@@ -61,7 +61,7 @@ The Enterprise-tier DFIR Retainer is designed for organisations with complex, mu
 - Proactive **threat hunting** (20 hours/quarter)
 - Customised IR Playbook (per business unit)
 - Monthly readiness review meetings
-- Priority access to Threat Intelligence Practice threat intelligence
+- Priority access to Threat Intelligence Practice
 
 **SLA Commitments:** {{SLA_TIER}}
 
@@ -90,7 +90,7 @@ The Enterprise-tier DFIR Retainer is designed for organisations with complex, mu
 7. Payment terms: 50% advance upon execution; 50% at 6-month anniversary.
 8. Minimum engagement term: 6 months. Early termination subject to 90-day notice and pro-rata fee.
 9. This agreement is governed by the laws of India (or agreed jurisdiction).
-10. Our data handling procedures are ISO 27001 certified.
+10. Data handling procedures are ISO 27001 certified.
 
 ---
 
@@ -100,12 +100,12 @@ The Enterprise-tier DFIR Retainer is designed for organisations with complex, mu
 
 ---
 
-## Why Proposal Engine
+## Why {{COMPANY_NAME}}
 
 1. **Dedicated named resources** — you get a forensic team that knows your environment, not a cold-start generalist.
 2. **PFI + QSA dual accreditation** — critical for organisations in payment ecosystems facing regulatory scrutiny.
 3. **Threat hunting included** — proactive hunts detect threats before they escalate to incidents.
-4. **Regulatory breadth** — Proposal Engine simultaneously manages CERT-In 6-hour reporting, PCI DSS breach notifications, and RBI/SEBI disclosure obligations.
+4. **Regulatory breadth** — {{COMPANY_NAME}} simultaneously manages CERT-In 6-hour reporting, PCI DSS breach notifications, and RBI/SEBI disclosure obligations.
 
 ---
 
@@ -113,8 +113,8 @@ The Enterprise-tier DFIR Retainer is designed for organisations with complex, mu
 
 1. Confirm proposal and initiate procurement/legal review.
 2. Execute Enterprise Retainer Agreement.
-3. Proposal Engine conducts environment onboarding (2-day session — remote or on-site).
+3. {{COMPANY_NAME}} conducts environment onboarding (2-day session — remote or on-site).
 4. Named team assigned and introductions made within 5 business days.
 5. First tabletop exercise scheduled within 30 days of activation.
 
-*For questions or clarifications, contact your Proposal Engine account manager.*
+*For questions or clarifications, contact your account manager.*
