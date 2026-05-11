@@ -56,7 +56,7 @@ class ScopingAgent(BaseAgent):
             brief_summary=brief_summary,
         )
 
-        data = self.call_llm_json(prompt, max_tokens=1024)
+        data = self.call_llm_json(prompt, max_tokens=600)
         markdown = self._to_markdown(data, client_info, tier)
         return {"data": data, "markdown": markdown}
 

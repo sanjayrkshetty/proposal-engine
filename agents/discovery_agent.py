@@ -41,7 +41,7 @@ class DiscoveryAgent(BaseAgent):
             exec_summary=client_info.get("exec_summary") or "Not provided",
         )
 
-        data = self.call_llm_json(prompt, max_tokens=1024)
+        data = self.call_llm_json(prompt, max_tokens=600)
         markdown = self._to_markdown(data, client_info)
         return {"data": data, "markdown": markdown}
 
