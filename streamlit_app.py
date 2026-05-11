@@ -667,8 +667,9 @@ if generate and client_name and api_ok:
     st.session_state["proposal_number"] = proposal_number
     st.session_state["out_path"] = str(out_path)
     st.session_state["errors"] = errors
-    st.session_state["client_name"] = client_name
-    st.session_state["mode"] = mode
+    st.session_state["_pipeline_mode"] = mode
+    # NOTE: do NOT write st.session_state["client_name"] or any other widget key —
+    # Streamlit 1.57+ raises StreamlitAPIException if a widget-bound key is set manually.
 
 # ── Results Display ────────────────────────────────────────────────────────
 
@@ -676,7 +677,7 @@ if "results" in st.session_state and st.session_state["results"]:
     results = st.session_state["results"]
     proposal_number = st.session_state.get("proposal_number", "")
     errors = st.session_state.get("errors", [])
-    mode_used = st.session_state.get("mode", "full")
+    mode_used = st.session_state.get("_pipeline_mode", "full")
 
     st.divider()
 
