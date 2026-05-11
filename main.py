@@ -19,7 +19,7 @@ from rich.panel import Panel
 from rich.table import Table
 
 # Inject GROQ API key before any agent imports
-os.environ["GROQ_API_KEY"] = "os.environ.get("GROQ_API_KEY", "")"
+os.environ["GROQ_API_KEY"] = "YOUR_GROQ_API_KEY_HERE"
 
 from agents.questionnaire_agent import QuestionnaireAgent
 from agents.discovery_agent import DiscoveryAgent

@@ -2,7 +2,7 @@
 import os
 from .base_agent import BaseAgent
 
-os.environ.setdefault("GROQ_API_KEY", "os.environ.get("GROQ_API_KEY", "")")
+os.environ.setdefault("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
 
 DISCOVERY_PROMPT = """You are a SISA Information Security pre-sales discovery specialist.
 Given client information for a {service_name} engagement, generate a structured discovery brief.

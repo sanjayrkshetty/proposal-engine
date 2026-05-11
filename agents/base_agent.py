@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from groq import Groq
 
 # Inject API key at module load time
-os.environ.setdefault("GROQ_API_KEY", "os.environ.get("GROQ_API_KEY", "")")
+os.environ.setdefault("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
 
 MODEL = "llama-3.3-70b-versatile"
 
@@ -15,7 +15,7 @@ class BaseAgent(ABC):
 
     def __init__(self, service_config: dict):
         self.config = service_config
-        api_key = os.environ.get("GROQ_API_KEY", "os.environ.get("GROQ_API_KEY", "")")
+        api_key = os.environ.get("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
         self.client = Groq(api_key=api_key)
         self.model = MODEL
 

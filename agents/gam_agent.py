@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import yaml
 from .base_agent import BaseAgent
 
-os.environ.setdefault("GROQ_API_KEY", "os.environ.get("GROQ_API_KEY", "")")
+os.environ.setdefault("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
 
 GAM_LIST_PATH = Path("config/gam_list.yaml")
 
