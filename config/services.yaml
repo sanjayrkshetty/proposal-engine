@@ -1,118 +1,769 @@
 services:
-  DFIR-R:
-    name: DFIR Retainer
-    code: DFIR-R
-    category: dfir
-    description: Pre-contracted priority access to forensic experts with guaranteed SLAs
+
+  # ============================================================
+  # DFIR — Digital Forensics & Incident Response
+  # ============================================================
+
+  DFIR-R-ESS:
+    code: DFIR-R-ESS
+    name: DFIR Retainer — Essential
+    bu: dfir
+    sub_bu: retainer
+    tier: Essential
+    template: retainer_essential.md
+    questionnaire_module: bu.dfir.questionnaire
+    codebook_path: bu/dfir/codebook.yaml
+    proposal_number_format: "SISA-{YEAR}-{REGION}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Initial Response: 4h | Containment: 24h | Report: 5 BD"
+    description: Pre-contracted priority access to SISA forensic experts. Essential tier covers standard IR events with guaranteed 4-hour response SLA.
     key_components:
-      - Pre-contracted expert access
-      - 24/7 priority incident response
-      - Accelerated SLA guarantee
+      - Pre-contracted expert access (up to 80 hours/year)
+      - 4-hour priority incident response SLA
       - Standby forensics team (GCFA, GCIH certified)
-      - PFI expertise for payment environments
+      - Monthly threat intelligence briefing
+      - Quarterly retainer review
     engagement_type: retainer
-    typical_duration: "12 months"
+    typical_duration: 12 months (minimum 3 months)
     deliverables:
       - Retainer agreement with defined SLAs
       - Incident response playbook
       - Quarterly readiness reviews
-      - On-demand forensic investigation hours
+      - On-demand forensic investigation hours (up to 80/year)
     regulatory_fit:
       - PCI DSS v4.0 (Requirement 12.10)
       - ISO/IEC 27001 (A.16)
-      - RBI guidelines
-    discovery_questions:
-      - What was your last incident and how long did containment take?
-      - Do you have a current IR retainer? If so, what are the SLAs?
-      - What is your regulatory environment (PCI DSS, RBI, SEBI)?
-      - How many payment channels or card data environments are in scope?
-      - What is your internal IR team capacity?
+      - RBI Cyber Security Framework
+      - CERT-In 6-hour reporting compliance
+
+  DFIR-R-ENT:
+    code: DFIR-R-ENT
+    name: DFIR Retainer — Enterprise
+    bu: dfir
+    sub_bu: retainer
+    tier: Enterprise
+    template: retainer_enterprise.md
+    questionnaire_module: bu.dfir.questionnaire
+    codebook_path: bu/dfir/codebook.yaml
+    proposal_number_format: "SISA-{YEAR}-{REGION}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Initial Response: 2h | Containment: 12h | Report: 3 BD"
+    description: Enterprise-grade DFIR retainer with dedicated team, 2-hour response SLA, and unlimited IR events (fair use).
+    key_components:
+      - Dedicated forensic team (named resources)
+      - 2-hour priority response SLA
+      - Unlimited IR events (fair use policy)
+      - PFI expertise for payment environments
+      - Monthly tabletop exercises
+      - Threat hunting hours (20/quarter)
+    engagement_type: retainer
+    typical_duration: 12 months (minimum 6 months)
+    deliverables:
+      - Retainer agreement + named team allocation
+      - Incident response playbook (customised)
+      - Monthly readiness reviews
+      - Unlimited on-demand forensic hours (fair use)
+      - Quarterly threat hunting reports
+    regulatory_fit:
+      - PCI DSS v4.0 (Requirement 12.10)
+      - ISO/IEC 27001 (A.16)
+      - RBI Cyber Security Framework
+      - SEBI Cybersecurity and Cyber Resilience Framework
+      - CERT-In 6-hour reporting compliance
+
+  DFIR-R-ELT:
+    code: DFIR-R-ELT
+    name: DFIR Retainer — Elite
+    bu: dfir
+    sub_bu: retainer
+    tier: Elite
+    template: retainer_elite.md
+    questionnaire_module: bu.dfir.questionnaire
+    codebook_path: bu/dfir/codebook.yaml
+    proposal_number_format: "SISA-{YEAR}-{REGION}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Initial Response: 1h | Containment: 6h | Report: 2 BD"
+    description: Elite DFIR retainer with 1-hour response SLA, on-call senior forensic director, and full PFI coverage.
+    key_components:
+      - Senior Forensic Director on call (named)
+      - 1-hour response SLA (24/7/365)
+      - Full PFI coverage for payment incidents
+      - Proactive threat hunting (40 hours/quarter)
+      - Executive-level crisis communication support
+      - Board-ready incident reporting
+    engagement_type: retainer
+    typical_duration: 12 months (minimum 12 months)
+    deliverables:
+      - Elite retainer agreement + senior named resources
+      - Bespoke IR playbook per business unit
+      - Weekly readiness reviews
+      - Unlimited on-demand hours
+      - Quarterly executive threat briefings
+      - Board-level incident communication templates
+    regulatory_fit:
+      - PCI DSS v4.0 (full PFI coverage)
+      - ISO/IEC 27001
+      - RBI, SEBI, IRDAI frameworks
+      - DORA (EU digital operational resilience)
+      - CERT-In 6-hour reporting compliance
 
   IFI:
-    name: Internal Forensic Investigation
     code: IFI
-    category: dfir
-    description: Thorough investigation of complex or high-impact internal incidents
+    name: Internal Forensic Investigation
+    bu: dfir
+    sub_bu: investigation
+    tier: Standard
+    template: ifi.md
+    questionnaire_module: bu.dfir.questionnaire
+    codebook_path: bu/dfir/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 21
+    sla_tier: "Report: 5-10 BD post evidence collection"
+    description: Thorough investigation of complex or high-impact internal incidents including insider threats, breaches, and ransomware.
     key_components:
-      - Deep system forensics
-      - Log analysis and correlation
+      - Deep system and memory forensics
+      - Log analysis and correlation (SIEM integration)
       - Attack chain reconstruction
       - Data examination and classification
-      - Regulatory-ready reporting
+      - Regulatory-ready reporting (CERT-In, PCI DSS)
     engagement_type: project
-    typical_duration: "2-6 weeks"
+    typical_duration: 2-6 weeks
     deliverables:
       - Executive summary report
-      - Technical forensic findings
+      - Technical forensic findings report
       - Attack timeline reconstruction
-      - Evidence chain of custody
+      - Evidence chain of custody documentation
       - Remediation recommendations
     regulatory_fit:
-      - PCI DSS breach notification
+      - PCI DSS breach notification (Requirement 12.10.7)
       - CERT-In 6-hour reporting
       - ISO/IEC 27001 incident management
-    discovery_questions:
-      - What type of incident occurred (insider threat, external breach, ransomware)?
-      - What systems and data are potentially impacted?
-      - Has the incident been contained or is it ongoing?
-      - Are there regulatory reporting obligations with deadlines?
-      - Is law enforcement involved or likely to be?
+      - DPDP Act 2023 data breach reporting
 
   CA:
-    name: Compromise Assessment
     code: CA
-    category: dfir
-    description: Proactive identification of hidden breaches and lateral movement
+    name: Compromise Assessment
+    bu: dfir
+    sub_bu: assessment
+    tier: Standard
+    template: ca.md
+    questionnaire_module: bu.dfir.questionnaire
+    codebook_path: bu/dfir/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 21
+    sla_tier: "Report: 3-5 BD post assessment"
+    description: Proactive identification of hidden breaches, lateral movement, and undetected threat actor presence.
     key_components:
       - Hidden breach detection
       - Lateral movement identification
-      - Environmental threat scanning
-      - Endpoint forensic triage
-      - IOC discovery and correlation
+      - Environmental threat scanning (EDR + SIEM)
+      - Endpoint forensic triage (up to 50 endpoints)
+      - IOC discovery and threat actor correlation
     engagement_type: project
-    typical_duration: "1-3 weeks"
+    typical_duration: 1-3 weeks
     deliverables:
       - Compromise assessment report
-      - IOC list and threat actor TTPs
+      - IOC list and threat actor TTPs (MITRE ATT&CK mapped)
       - Risk prioritisation matrix
       - Remediation roadmap
     regulatory_fit:
-      - PCI DSS (post-breach assessment)
+      - PCI DSS post-breach assessment
       - ISO/IEC 27001 continuous improvement
       - Cyber insurance requirements
-    discovery_questions:
-      - What triggered the decision to run a compromise assessment?
-      - How many endpoints and servers are in scope?
-      - Do you have EDR/SIEM tooling currently deployed?
-      - Have you noticed any anomalous activity — slow systems, unusual logins, data exfiltration alerts?
-      - Is this for insurance, compliance, or internal assurance?
+      - DPDP Act 2023
 
   BAS:
-    name: Breach and Attack Simulation
     code: BAS
-    category: dfir
-    description: MITRE ATT&CK-mapped simulated attacks to validate defenses and assess security maturity
+    name: Breach and Attack Simulation
+    bu: dfir
+    sub_bu: simulation
+    tier: Standard
+    template: bas.md
+    questionnaire_module: bu.dfir.questionnaire
+    codebook_path: bu/dfir/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 21
+    sla_tier: "Report: 5 BD post simulation"
+    description: MITRE ATT&CK-mapped simulated attacks to validate defenses and assess security control maturity.
     key_components:
-      - Simulated attack execution (MITRE ATT&CK)
-      - Defense gap identification
-      - Security maturity assessment
-      - Control validation
-      - Resilience recommendations
+      - Simulated attack execution (MITRE ATT&CK framework)
+      - Defense gap identification across SIEM, EDR, WAF, DLP
+      - Security maturity scoring (1-5 scale)
+      - Purple team exercises (joint attacker/defender)
+      - Control validation and detection coverage mapping
     engagement_type: project
-    typical_duration: "2-4 weeks"
+    typical_duration: 2-4 weeks
     deliverables:
       - BAS execution report
       - MITRE ATT&CK coverage heatmap
-      - Security maturity score
-      - Control gap analysis
-      - Prioritised remediation plan
+      - Security maturity score with benchmarking
+      - Control gap analysis and prioritised remediation plan
     regulatory_fit:
       - PCI DSS v4.0 (penetration testing requirements)
-      - ISO/IEC 27001 (A.14 — security testing)
+      - ISO/IEC 27001 (security testing)
       - DORA (financial sector resilience testing)
-    discovery_questions:
-      - What security controls do you currently have (EDR, SIEM, WAF, DLP)?
-      - Have you run a BAS or red team exercise before? What were findings?
-      - Which threat actors or attack scenarios are most relevant to your industry?
-      - What is the primary goal — compliance validation or genuine security improvement?
-      - Are purple team exercises (joint attacker/defender) in scope?
+      - SEBI cybersecurity framework
+
+  # ============================================================
+  # MXDR — Managed Extended Detection & Response
+  # ============================================================
+
+  MXDR-ESS:
+    code: MXDR-ESS
+    name: MXDR — Essential
+    bu: mxdr
+    sub_bu: managed_detection
+    tier: Essential
+    template: mxdr_essential.md
+    questionnaire_module: bu.mxdr.questionnaire
+    codebook_path: bu/mxdr/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Alert Triage: 30min | Investigation: 4h | Escalation: 1h"
+    description: Managed detection and response covering endpoint, network, and cloud telemetry with 24/7 SOC coverage. Essential tier for SME and mid-market organisations.
+    key_components:
+      - 24/7 SOC monitoring (shared analyst pool)
+      - EDR deployment and management (up to 500 endpoints)
+      - SIEM log ingestion (up to 5 GB/day)
+      - Threat detection, triage, and escalation
+      - Monthly threat reports and executive summary
+    engagement_type: managed_service
+    typical_duration: 12 months (minimum 6 months)
+    deliverables:
+      - Monthly SOC reports
+      - Quarterly executive threat briefings
+      - Incident response coordination (up to 3 incidents/year)
+      - Threat intel feeds integration
+    regulatory_fit:
+      - MAS TRM guidelines (Singapore)
+      - RBI Cyber Security Framework
+      - ISO/IEC 27001 (A.12 — operations security)
+      - SEBI cybersecurity framework
+      - PCI DSS (continuous monitoring requirement)
+
+  MXDR-ENT:
+    code: MXDR-ENT
+    name: MXDR — Enterprise
+    bu: mxdr
+    sub_bu: managed_detection
+    tier: Enterprise
+    template: mxdr_enterprise.md
+    questionnaire_module: bu.mxdr.questionnaire
+    codebook_path: bu/mxdr/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Alert Triage: 15min | Investigation: 2h | Escalation: 30min"
+    description: Enterprise MXDR with dedicated analyst pair, full XDR capability across endpoint, cloud, identity, and OT/ICS environments.
+    key_components:
+      - Dedicated analyst pair (named resources)
+      - Unlimited endpoints and cloud workloads
+      - SIEM log ingestion (up to 50 GB/day)
+      - Identity threat detection (Azure AD, Okta)
+      - OT/ICS anomaly detection (optional)
+      - Active threat hunting (20 hours/month)
+      - Automated response playbooks
+    engagement_type: managed_service
+    typical_duration: 12 months (minimum 12 months)
+    deliverables:
+      - Weekly SOC digests + monthly executive reports
+      - Threat hunting reports (monthly)
+      - Incident response (unlimited, SLA-bound)
+      - Custom detection rules (up to 50/year)
+      - Quarterly purple team exercises
+    regulatory_fit:
+      - MAS TRM guidelines
+      - RBI, SEBI, IRDAI frameworks
+      - ISO/IEC 27001 + ISO/IEC 27035
+      - DORA
+      - NIS2 (EU critical infrastructure)
+      - PCI DSS v4.0
+
+  # ============================================================
+  # DPG — Data Privacy & Governance
+  # ============================================================
+
+  DPG-DPO:
+    code: DPG-DPO
+    name: DPO-as-a-Service
+    bu: dpg
+    sub_bu: dpo
+    tier: Standard
+    template: dpg_standard.md
+    questionnaire_module: bu.dpg.questionnaire
+    codebook_path: bu/dpg/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Advisory Response: 2 BD | Breach Notification: 4h"
+    description: Outsourced Data Protection Officer service. SISA provides a qualified DPO to fulfil regulatory obligations under DPDP Act 2023, GDPR, and other privacy frameworks.
+    key_components:
+      - Qualified DPO (named resource, CIPP/E certified)
+      - Privacy policy review and development
+      - Data subject request management
+      - Regulatory liaison (Data Protection Board)
+      - Breach notification coordination
+      - Privacy training for staff
+    engagement_type: managed_service
+    typical_duration: 12 months
+    deliverables:
+      - Privacy compliance roadmap
+      - Updated privacy policies and notices
+      - Records of processing activities (RoPA)
+      - Data subject request handling procedures
+      - Monthly privacy compliance reports
+    regulatory_fit:
+      - DPDP Act 2023 (India)
+      - GDPR (EU)
+      - PDPA (Singapore)
+      - POPIA (South Africa)
+
+  DPG-DPIA:
+    code: DPG-DPIA
+    name: Data Protection Impact Assessment
+    bu: dpg
+    sub_bu: assessment
+    tier: Standard
+    template: dpg_standard.md
+    questionnaire_module: bu.dpg.questionnaire
+    codebook_path: bu/dpg/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 21
+    sla_tier: "Report: 5 BD post data collection"
+    description: Structured assessment of data processing activities to identify and mitigate privacy risks for high-risk processing operations.
+    key_components:
+      - Processing activity mapping
+      - Privacy risk identification and scoring
+      - Data flow diagrams (as-is)
+      - Necessity and proportionality assessment
+      - Risk mitigation recommendations
+    engagement_type: project
+    typical_duration: 2-4 weeks
+    deliverables:
+      - DPIA report (GDPR/DPDP compliant format)
+      - Data flow diagrams
+      - Risk register with mitigations
+      - Regulatory submission-ready documentation
+    regulatory_fit:
+      - DPDP Act 2023
+      - GDPR Article 35
+      - ISO/IEC 27701
+
+  DPG-AUDIT:
+    code: DPG-AUDIT
+    name: Privacy Audit
+    bu: dpg
+    sub_bu: audit
+    tier: Standard
+    template: dpg_standard.md
+    questionnaire_module: bu.dpg.questionnaire
+    codebook_path: bu/dpg/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 21
+    sla_tier: "Report: 7 BD post audit"
+    description: Comprehensive audit of an organisation's privacy program against DPDP Act 2023, GDPR, or PDPA requirements.
+    key_components:
+      - Privacy program gap analysis
+      - Policy and procedure review
+      - Technical control assessment
+      - Third-party processor review
+      - Staff awareness assessment
+    engagement_type: project
+    typical_duration: 3-5 weeks
+    deliverables:
+      - Privacy audit report
+      - Gap analysis matrix
+      - Compliance roadmap
+      - Executive summary for board
+    regulatory_fit:
+      - DPDP Act 2023
+      - GDPR
+      - PDPA (Singapore)
+      - ISO/IEC 27701
+
+  # ============================================================
+  # CTS — Cyber Testing Services
+  # ============================================================
+
+  CTS-PAYSEC-PCI:
+    code: CTS-PAYSEC-PCI
+    name: Payment Security — PCI DSS Assessment
+    bu: cts
+    sub_bu: paysec
+    tier: Standard
+    template: paysec_pci.md
+    questionnaire_module: bu.cts.questionnaire
+    codebook_path: bu/cts/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Report: 10 BD post assessment"
+    description: QSA-led PCI DSS v4.0 assessment covering cardholder data environment scoping, gap analysis, and certification pathway.
+    key_components:
+      - CDE scoping and network segmentation review
+      - PCI DSS v4.0 gap assessment (all 12 requirements)
+      - Penetration testing (network and application)
+      - SAQ / RoC documentation
+      - Remediation advisory
+    engagement_type: project
+    typical_duration: 4-8 weeks
+    deliverables:
+      - PCI DSS gap assessment report
+      - Network segmentation test results
+      - Penetration test report
+      - SAQ completion or RoC draft
+      - Remediation roadmap
+    regulatory_fit:
+      - PCI DSS v4.0 (full standard)
+      - PCI SSF (Software Security Framework)
+      - RBI guidelines for payment processors
+
+  CTS-PAYSEC-SSF:
+    code: CTS-PAYSEC-SSF
+    name: Payment Security — PCI SSF Assessment
+    bu: cts
+    sub_bu: paysec
+    tier: Standard
+    template: paysec_pci.md
+    questionnaire_module: bu.cts.questionnaire
+    codebook_path: bu/cts/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Report: 10 BD post assessment"
+    description: SISA QSA-led PCI Software Security Framework (SSF) assessment covering Secure Software Standard and Secure SLC Standard.
+    key_components:
+      - Secure Software Standard assessment
+      - Secure SLC Standard assessment
+      - Code review and SAST integration
+      - Software security policy review
+    engagement_type: project
+    typical_duration: 3-6 weeks
+    deliverables:
+      - SSF assessment report
+      - Secure coding gap analysis
+      - SSF certification pathway documentation
+    regulatory_fit:
+      - PCI SSF (Secure Software Framework)
+      - PCI DSS v4.0 (Requirement 6)
+
+  CTS-WAR-RT:
+    code: CTS-WAR-RT
+    name: Warlabs Red Team Exercise
+    bu: cts
+    sub_bu: warlabs
+    tier: Standard
+    template: warlabs_redteam.md
+    questionnaire_module: bu.cts.questionnaire
+    codebook_path: bu/cts/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Report: 10 BD post exercise"
+    description: Full-scope adversarial simulation by SISA Warlabs. Red team exercises simulate nation-state and organised cybercriminal TTPs against crown jewels.
+    key_components:
+      - Threat intelligence-led attack scenario design
+      - External and internal attack simulation
+      - Social engineering and phishing campaigns
+      - Physical security testing (optional)
+      - Crown jewel targeting
+      - Purple team debrief
+    engagement_type: project
+    typical_duration: 4-8 weeks
+    deliverables:
+      - Red team final report
+      - Attack narrative and kill chain documentation
+      - MITRE ATT&CK mapped findings
+      - Purple team exercise report
+      - Executive debrief presentation
+    regulatory_fit:
+      - DORA (TLPT — threat-led penetration testing)
+      - MAS TRM advanced testing
+      - PCI DSS v4.0 penetration testing
+      - RBI cybersecurity framework (advanced testing)
+
+  CTS-NET-PT:
+    code: CTS-NET-PT
+    name: Network Penetration Test
+    bu: cts
+    sub_bu: netsec
+    tier: Standard
+    template: netsec_pentest.md
+    questionnaire_module: bu.cts.questionnaire
+    codebook_path: bu/cts/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 21
+    sla_tier: "Report: 5 BD post testing"
+    description: External and internal network penetration testing following PTES and OWASP testing methodology. Identifies exploitable vulnerabilities before attackers do.
+    key_components:
+      - External perimeter penetration test
+      - Internal network penetration test
+      - Firewall and network segmentation review
+      - Wireless security testing (optional)
+      - Active Directory attack paths
+    engagement_type: project
+    typical_duration: 1-2 weeks
+    deliverables:
+      - Network penetration test report (executive + technical)
+      - Vulnerability evidence (screenshots, PoC)
+      - CVSS-scored finding register
+      - Remediation recommendations
+    regulatory_fit:
+      - PCI DSS v4.0 (Requirement 11.4)
+      - ISO/IEC 27001 (A.14.2)
+      - RBI cybersecurity framework
+      - SEBI cybersecurity framework
+
+  CTS-NET-VA:
+    code: CTS-NET-VA
+    name: Vulnerability Assessment
+    bu: cts
+    sub_bu: netsec
+    tier: Standard
+    template: netsec_pentest.md
+    questionnaire_module: bu.cts.questionnaire
+    codebook_path: bu/cts/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 21
+    sla_tier: "Report: 3 BD post scan"
+    description: Authenticated vulnerability scanning and risk-scored findings across network infrastructure, endpoints, and cloud assets.
+    key_components:
+      - Credentialed and uncredentialed scanning
+      - Cloud asset discovery (AWS/Azure/GCP)
+      - CVE correlation and CVSS scoring
+      - False positive validation
+    engagement_type: project
+    typical_duration: 1 week
+    deliverables:
+      - Vulnerability assessment report
+      - Risk-scored finding register
+      - Patch prioritisation roadmap
+    regulatory_fit:
+      - PCI DSS v4.0 (Requirement 11.3)
+      - ISO/IEC 27001
+      - RBI cybersecurity framework
+
+  CTS-APP-WAPT:
+    code: CTS-APP-WAPT
+    name: Web Application Penetration Test
+    bu: cts
+    sub_bu: appsec
+    tier: Standard
+    template: appsec_webapp.md
+    questionnaire_module: bu.cts.questionnaire
+    codebook_path: bu/cts/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 21
+    sla_tier: "Report: 5 BD post testing"
+    description: Manual web application penetration testing following OWASP Testing Guide v4.2 and OWASP Top 10 2021. Covers authentication, authorisation, business logic, and API security.
+    key_components:
+      - OWASP Top 10 2021 coverage
+      - Authentication and session management testing
+      - Business logic vulnerability testing
+      - API security testing (REST/SOAP/GraphQL)
+      - Client-side vulnerability assessment
+    engagement_type: project
+    typical_duration: 1-2 weeks
+    deliverables:
+      - WAPT report (executive + technical)
+      - OWASP Top 10 coverage matrix
+      - Proof-of-concept code for critical findings
+      - Developer-friendly remediation guidance
+    regulatory_fit:
+      - PCI DSS v4.0 (Requirement 6.3, 11.4)
+      - ISO/IEC 27001 (A.14.2.8)
+      - DPDP Act 2023 (application security)
+      - RBI cybersecurity framework
+
+  CTS-APP-SAST:
+    code: CTS-APP-SAST
+    name: Static Application Security Testing
+    bu: cts
+    sub_bu: appsec
+    tier: Standard
+    template: appsec_webapp.md
+    questionnaire_module: bu.cts.questionnaire
+    codebook_path: bu/cts/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 21
+    sla_tier: "Report: 5 BD post code review"
+    description: Manual and automated source code security review covering OWASP Top 10, CWE/SANS Top 25, and language-specific vulnerabilities.
+    key_components:
+      - Automated SAST tooling (Semgrep, SonarQube)
+      - Manual code review for critical paths
+      - Secret detection in source code
+      - Dependency vulnerability analysis (SCA)
+      - CI/CD pipeline integration advisory
+    engagement_type: project
+    typical_duration: 1-3 weeks
+    deliverables:
+      - SAST report with triage-ready findings
+      - CWE-mapped vulnerability register
+      - Secure coding recommendations
+      - CI/CD integration guide
+    regulatory_fit:
+      - PCI DSS v4.0 (Requirement 6 — secure development)
+      - PCI SSF
+      - ISO/IEC 27001 (A.14.2)
+
+  # ============================================================
+  # Institute — SISA Institute (Training & Certification)
+  # ============================================================
+
+  INST-AWARENESS:
+    code: INST-AWARENESS
+    name: Security Awareness Training
+    bu: institute
+    sub_bu: awareness
+    tier: Standard
+    template: training_proposal.md
+    questionnaire_module: bu.institute.questionnaire
+    codebook_path: bu/institute/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 21
+    sla_tier: "Delivery: As agreed | Post-training report: 2 BD"
+    description: Instructor-led security awareness training tailored to client industry and threat landscape. Includes phishing simulation and culture assessment.
+    key_components:
+      - Customised training content (industry-specific)
+      - Live instructor-led sessions (virtual or on-site)
+      - Phishing simulation campaigns
+      - Security culture assessment
+      - Completion tracking and reporting
+    engagement_type: project
+    typical_duration: 1-2 weeks
+    deliverables:
+      - Training delivery (all staff)
+      - Phishing simulation report
+      - Culture assessment report
+      - Training completion certificates
+    regulatory_fit:
+      - PCI DSS v4.0 (Requirement 12.6)
+      - ISO/IEC 27001 (A.7.2.2)
+      - RBI cybersecurity framework
+      - DPDP Act 2023 (staff training requirement)
+
+  INST-DFIR-CERT:
+    code: INST-DFIR-CERT
+    name: DFIR Certification Program
+    bu: institute
+    sub_bu: certification
+    tier: Standard
+    template: training_proposal.md
+    questionnaire_module: bu.institute.questionnaire
+    codebook_path: bu/institute/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Program delivery: As agreed"
+    description: SISA Institute's structured DFIR certification program. Prepares analysts for GCFA, GCIH, and SISA-issued DFIR certifications.
+    key_components:
+      - 40-hour structured curriculum
+      - Hands-on lab environment (SISA virtual range)
+      - Incident scenario simulations
+      - Certification examination
+      - Post-program mentoring (3 months)
+    engagement_type: training_program
+    typical_duration: 4-6 weeks
+    deliverables:
+      - Training materials (lifetime access)
+      - Lab environment access
+      - SISA DFIR certification (on passing)
+      - Mentoring sessions
+    regulatory_fit:
+      - ISO/IEC 27001 (competency requirements)
+      - PCI DSS (IR team competency)
+
+  INST-SOC-ANALYST:
+    code: INST-SOC-ANALYST
+    name: SOC Analyst Development Program
+    bu: institute
+    sub_bu: certification
+    tier: Standard
+    template: training_proposal.md
+    questionnaire_module: bu.institute.questionnaire
+    codebook_path: bu/institute/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Program delivery: As agreed"
+    description: Structured SOC Analyst development program covering L1/L2/L3 analyst competencies. Tailored for organisations building or upskilling internal SOC teams.
+    key_components:
+      - L1/L2/L3 analyst curriculum tracks
+      - SIEM, EDR, and threat intelligence tooling labs
+      - Real-world case study analysis
+      - Certification examination (SISA SOC Analyst)
+      - 6-month post-program support
+    engagement_type: training_program
+    typical_duration: 6-8 weeks
+    deliverables:
+      - Training materials per track
+      - Lab environment access (6 months)
+      - SISA SOC Analyst certification
+      - Competency assessment reports
+    regulatory_fit:
+      - ISO/IEC 27001 (A.7 — HR security)
+      - MAS TRM (SOC capability requirements)
+
+  # ============================================================
+  # Quantum — Quantum Security Advisory
+  # ============================================================
+
+  QTM-READINESS:
+    code: QTM-READINESS
+    name: Quantum Readiness Assessment
+    bu: quantum
+    sub_bu: readiness
+    tier: Standard
+    template: quantum_readiness.md
+    questionnaire_module: bu.quantum.questionnaire
+    codebook_path: bu/quantum/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Report: 10 BD post assessment"
+    description: Comprehensive assessment of an organisation's cryptographic landscape against post-quantum threats. Identifies quantum-vulnerable algorithms and provides PQC migration roadmap.
+    key_components:
+      - Cryptographic inventory discovery (PKI, TLS, symmetric keys)
+      - Quantum-vulnerable algorithm identification (RSA, ECC, DH)
+      - NIST PQC standards readiness gap analysis
+      - Migration complexity and cost modelling
+      - Executive-level quantum risk briefing
+    engagement_type: project
+    typical_duration: 3-6 weeks
+    deliverables:
+      - Quantum readiness assessment report
+      - Cryptographic inventory register
+      - PQC migration roadmap (3/5/10 year horizons)
+      - Executive quantum risk briefing
+      - Board presentation deck
+    regulatory_fit:
+      - NIST PQC standards (FIPS 203/204/205)
+      - NSA CNSA 2.0 suite
+      - RBI future-proofing guidelines
+      - ENISA post-quantum guidance (EU)
+      - MAS quantum risk guidance (Singapore)
+
+  QTM-PQC-ADVISORY:
+    code: QTM-PQC-ADVISORY
+    name: Post-Quantum Cryptography Advisory
+    bu: quantum
+    sub_bu: advisory
+    tier: Standard
+    template: quantum_readiness.md
+    questionnaire_module: bu.quantum.questionnaire
+    codebook_path: bu/quantum/codebook.yaml
+    proposal_number_format: "SISA-{BU}-{YEAR}-{SEQ:04d}"
+    default_validity_days: 30
+    sla_tier: "Advisory response: 2 BD"
+    description: Ongoing advisory engagement supporting PQC algorithm selection, implementation planning, and vendor evaluation for post-quantum migration.
+    key_components:
+      - PQC algorithm selection advisory (CRYSTALS-Kyber, CRYSTALS-Dilithium, SPHINCS+)
+      - Hybrid classical-quantum transition architecture design
+      - Vendor and tooling evaluation
+      - Pilot implementation oversight
+      - Regulatory alignment monitoring
+    engagement_type: advisory
+    typical_duration: 6-12 months
+    deliverables:
+      - PQC strategy document
+      - Algorithm selection rationale report
+      - Hybrid architecture design document
+      - Vendor evaluation matrix
+      - Quarterly advisory reports
+    regulatory_fit:
+      - NIST PQC standards
+      - NSA CNSA 2.0
+      - DORA (cryptographic risk requirements)
+      - ENISA post-quantum guidance
