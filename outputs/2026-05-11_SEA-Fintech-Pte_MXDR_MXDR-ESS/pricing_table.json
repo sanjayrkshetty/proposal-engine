@@ -1,0 +1,20 @@
+{
+  "service_code": "MXDR-ESS",
+  "unit_price_inr": 350000.0,
+  "unit_price_regional_inr": 525000.0,
+  "unit_price_display": 8606.557377049181,
+  "currency": "SGD",
+  "qty": 23,
+  "unit": "month",
+  "subtotal_inr": 12075000.0,
+  "discount_pct": 0.0,
+  "discount_threshold": 10.0,
+  "discount_approval_required": false,
+  "discount_amount_inr": 0.0,
+  "total_inr": 12075000.0,
+  "total_display": 197950.81967213115,
+  "region": "SEA",
+  "multiplier": 1.5,
+  "notes": "Shared analyst pool. 24/7 monitoring. Additional endpoints INR 500/endpoint/month.",
+  "pricing_table_md": "| Item | Unit Price (SGD) | Qty | Subtotal (SGD) |\n|------|----------------------|-----|----------------------|\n| MXDR \u2014 Essential | S$8,607/month | 23 | S$197,951 |\n| **Total** | \u2014 | \u2014 | **S$197,951** |\n\n*Shared analyst pool. 24/7 monitoring. Additional endpoints INR 500/endpoint/month.*\n\n*All prices exclusive of applicable taxes.*"
+}

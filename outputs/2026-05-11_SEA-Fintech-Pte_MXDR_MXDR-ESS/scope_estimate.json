@@ -1,0 +1,50 @@
+{
+  "effort_days": {
+    "onsite": 5,
+    "remote": 15,
+    "reporting": 3,
+    "total": 23
+  },
+  "in_scope": [
+    "Threat detection and response capabilities assessment",
+    "Security resource and expertise evaluation",
+    "Compliance review with MAS TRM guidelines",
+    "SGX listing rules compliance assessment",
+    "PDPA compliance review",
+    "Security incident response planning",
+    "Audit and compliance deadline management"
+  ],
+  "out_of_scope": [
+    "Network architecture design",
+    "Endpoint security implementation",
+    "Employee security awareness training"
+  ],
+  "deliverables": [
+    "MXDR Essential engagement report",
+    "Threat detection and response capabilities assessment report",
+    "Compliance review report",
+    "Security incident response plan",
+    "Audit and compliance deadline management plan"
+  ],
+  "commercial_risks": [
+    "Scope creep due to unidentified security incidents or breaches",
+    "Changes in MAS TRM guidelines or SGX listing rules",
+    "Insufficient client resources and expertise"
+  ],
+  "sla_commitments": {
+    "initial_response": "4 hours",
+    "containment": "24 hours",
+    "report_delivery": "5 business days"
+  },
+  "assumptions": [
+    "Client provides necessary access and information",
+    "No significant changes in client's security landscape",
+    "MAS TRM guidelines and SGX listing rules remain unchanged",
+    "Client has basic security measures in place"
+  ],
+  "indicative_price_range": {
+    "low": 150000,
+    "high": 250000,
+    "currency": "SGD"
+  }
+}

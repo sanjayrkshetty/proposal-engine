@@ -1,0 +1,20 @@
+{
+  "service_code": "DPG-DPIA",
+  "unit_price_inr": 320000.0,
+  "unit_price_regional_inr": 320000.0,
+  "unit_price_display": 320000.0,
+  "currency": "INR",
+  "qty": 5,
+  "unit": "engagement",
+  "subtotal_inr": 1600000.0,
+  "discount_pct": 0.0,
+  "discount_threshold": 10.0,
+  "discount_approval_required": false,
+  "discount_amount_inr": 0.0,
+  "total_inr": 1600000.0,
+  "total_display": 1600000.0,
+  "region": "India-North",
+  "multiplier": 1.0,
+  "notes": "Per processing activity assessed. Complex systems may require multiple DPIAs.",
+  "pricing_table_md": "| Item | Unit Price (INR) | Qty | Subtotal (INR) |\n|------|----------------------|-----|----------------------|\n| Data Protection Impact Assessment | \u20b9320,000/engagement | 5 | \u20b91,600,000 |\n| **Total** | \u2014 | \u2014 | **\u20b91,600,000** |\n\n*Per processing activity assessed. Complex systems may require multiple DPIAs.*\n\n*All prices exclusive of applicable taxes.*"
+}
