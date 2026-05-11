@@ -20,6 +20,7 @@ Regulatory drivers: {regulatory_drivers}
 
 Write 3-4 sentences that are business-outcome focused, reference the client's specific context,
 and position the firm as the trusted partner. Be professional and concise.
+IMPORTANT: Do NOT use any specific company name for the consulting firm. Use "our team", "we", or "this engagement" instead.
 Output ONLY the executive summary text, no headers."""
 
 

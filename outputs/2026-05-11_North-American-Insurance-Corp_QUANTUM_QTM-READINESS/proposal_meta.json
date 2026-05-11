@@ -1,8 +1,0 @@
-{
-  "proposal_number": "PROP-QUANTUM-2026-0001",
-  "client": "North American Insurance Corp",
-  "service": "QTM-READINESS",
-  "tier": "Enterprise",
-  "region": "NA",
-  "exec_summary": "As North American Insurance Corp embarks on its post-quantum migration planning, our Quantum Readiness Assessment will empower the organization to proactively address data encryption vulnerabilities, key management complexities, and compliance risks. By partnering with Proposal Engine, NAIC will be well-positioned to navigate the evolving regulatory landscape, including the NAIC Cybersecurity Model Law and NYDFS Cybersecurity Regulation. Our expert assessment will provide a tailored roadmap for mitigating quantum-related threats, ensuring the integrity of sensitive policyholder data and maintaining regulatory compliance. Through this engagement, Proposal Engine will help NAIC achieve a secure and seamless transition to a quantum-resistant infrastructure."
-}
