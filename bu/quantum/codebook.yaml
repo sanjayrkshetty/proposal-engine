@@ -1,0 +1,28 @@
+# Quantum BU — Pricing Codebook
+# All prices in INR. Regional multipliers applied by PricingAgent.
+
+services:
+  QTM-READINESS:
+    unit_price_inr: 1200000
+    unit: engagement
+    min_qty: 1
+    max_qty: 2
+    discount_threshold_pct: 8
+    description: Quantum Readiness Assessment — flat fee per engagement
+    notes: 3-6 week engagement. Includes cryptographic inventory, gap analysis, and PQC migration roadmap.
+
+  QTM-PQC-ADVISORY:
+    unit_price_inr: 450000
+    unit: month
+    min_qty: 6
+    max_qty: 12
+    discount_threshold_pct: 8
+    description: Post-Quantum Cryptography Advisory — per month
+    notes: Minimum 6-month advisory engagement. Named quantum security advisor.
+
+regional_multipliers:
+  India-North: 1.0
+  India-South: 1.0
+  MEE: 1.70
+  SEA: 1.55
+  NA: 2.10

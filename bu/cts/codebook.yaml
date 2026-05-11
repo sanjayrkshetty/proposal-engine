@@ -1,0 +1,73 @@
+# CTS BU — Pricing Codebook
+# All prices in INR. Regional multipliers applied by PricingAgent.
+
+services:
+  CTS-PAYSEC-PCI:
+    unit_price_inr: 950000
+    unit: engagement
+    min_qty: 1
+    max_qty: 2
+    discount_threshold_pct: 8
+    description: PCI DSS Assessment (QSA-led) — flat fee per engagement
+    notes: Includes gap assessment, pentest, and SAQ/RoC documentation. Travel extra.
+
+  CTS-PAYSEC-SSF:
+    unit_price_inr: 650000
+    unit: engagement
+    min_qty: 1
+    max_qty: 2
+    discount_threshold_pct: 10
+    description: PCI SSF Assessment — flat fee per engagement
+    notes: Covers Secure Software Standard and Secure SLC Standard.
+
+  CTS-WAR-RT:
+    unit_price_inr: 1800000
+    unit: engagement
+    min_qty: 1
+    max_qty: 2
+    discount_threshold_pct: 8
+    description: Warlabs Red Team Exercise — flat fee per engagement
+    notes: 4-8 week full-scope adversarial simulation. Includes purple team debrief.
+
+  CTS-NET-PT:
+    unit_price_inr: 280000
+    unit: engagement
+    min_qty: 1
+    max_qty: 4
+    discount_threshold_pct: 10
+    description: Network Penetration Test — flat fee per engagement
+    notes: External + internal. Up to /24 scope. Additional subnets priced separately.
+
+  CTS-NET-VA:
+    unit_price_inr: 120000
+    unit: engagement
+    min_qty: 1
+    max_qty: 6
+    discount_threshold_pct: 10
+    description: Vulnerability Assessment — flat fee per engagement
+    notes: Up to 250 hosts. Additional hosts at INR 400/host.
+
+  CTS-APP-WAPT:
+    unit_price_inr: 220000
+    unit: application
+    min_qty: 1
+    max_qty: 10
+    discount_threshold_pct: 10
+    description: Web Application Penetration Test — per application
+    notes: Per web application assessed. APIs included if in same application scope.
+
+  CTS-APP-SAST:
+    unit_price_inr: 280000
+    unit: application
+    min_qty: 1
+    max_qty: 8
+    discount_threshold_pct: 10
+    description: Static Application Security Testing — per application/codebase
+    notes: Per codebase. Includes automated + manual review for critical paths.
+
+regional_multipliers:
+  India-North: 1.0
+  India-South: 1.0
+  MEE: 1.70
+  SEA: 1.55
+  NA: 2.00

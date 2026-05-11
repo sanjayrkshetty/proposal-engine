@@ -1,0 +1,49 @@
+# Pricing Baseline — Regional ACV per BU
+# Used by PricingAgent to detect inflation/deviation from expected ACV ranges.
+
+inflation_alert_threshold_pct: 20
+
+# Annual Contract Value baselines (INR) per BU per region
+# These represent expected average ACV for a standard engagement.
+baselines:
+  dfir:
+    India-North: 5400000    # 12-month ENT retainer at standard rate
+    India-South: 5400000
+    MEE: 8910000            # 1.65x multiplier
+    SEA: 8100000            # 1.50x
+    NA: 10260000            # 1.90x
+
+  mxdr:
+    India-North: 4200000    # 12-month ESS retainer
+    India-South: 4200000
+    MEE: 6930000
+    SEA: 6300000
+    NA: 7980000
+
+  dpg:
+    India-North: 2400000    # 12-month DPO retainer
+    India-South: 2400000
+    MEE: 3840000
+    SEA: 3480000
+    NA: 4440000
+
+  cts:
+    India-North: 1800000    # Average WAPT + pentest bundle
+    India-South: 1800000
+    MEE: 3060000
+    SEA: 2790000
+    NA: 3600000
+
+  institute:
+    India-North: 500000     # ~5 participants per typical deal
+    India-South: 500000
+    MEE: 750000
+    SEA: 700000
+    NA: 900000
+
+  quantum:
+    India-North: 1200000    # Single readiness assessment
+    India-South: 1200000
+    MEE: 2040000
+    SEA: 1860000
+    NA: 2520000
