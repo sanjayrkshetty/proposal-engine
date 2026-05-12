@@ -3,6 +3,7 @@
 > **Production multi-agent pipeline that automates the full pre-sales cycle — discovery → scoping → pricing → proposal — across 6 business units and 22 services.**
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?style=flat-square&logo=streamlit)](https://proposal-engine.streamlit.app)
+[![Star](https://img.shields.io/github/stars/sanjayrkshetty/proposal-engine?style=flat-square&color=yellow)](https://github.com/sanjayrkshetty/proposal-engine/stargazers)
 [![Tests](https://img.shields.io/badge/Tests-90%2F90%20passing-00d97e?style=flat-square)](tests/)
 [![Model](https://img.shields.io/badge/Groq-Llama%203.3--70b-f97316?style=flat-square)](https://groq.com)
 [![Deploy](https://img.shields.io/badge/Deploy-Streamlit%20Cloud-FF4B4B?style=flat-square)](https://streamlit.io/cloud)
